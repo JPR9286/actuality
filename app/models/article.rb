@@ -1,5 +1,4 @@
 class Article < ApplicationRecord
-  belongs_to :category
-  has_many :messages
-  validates :title, :atricle_url, presence: true
+  belongs_to :category, optional: true
+  validates :title, :article_url, presence: true
 end

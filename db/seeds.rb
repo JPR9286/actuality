@@ -14,8 +14,8 @@ User.destroy_all
 
 user1 = User.create!(email: "adel@mail.com", password: "123456", nickname: "Adel")
 category = Category.create!(name: "foot")
-chatroom = Chatroom.create!(title: "batch1410", user: user1, category:category)
-message = chatroom.messages.create!(user: user1, content: "hello")
+chatroom = Chatroom.create!(title: "batch1410", user:user1, category: category)
+message = chatroom.messages.create!(user:user1, content: "hello")
 
 user2 = User.create!(email: "jeremy@mail.com", password: "123456", nickname: "Jeremy")
 category = Category.create!(name: "tennis")
