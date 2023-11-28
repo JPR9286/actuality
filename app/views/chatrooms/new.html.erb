@@ -1,0 +1,6 @@
+<p> New chatroom</p>
+<%= simple_form_for @chatroom do  |f| %>
+  <%= f.input :title %>
+  <%= f.association :category %>
+  <%= f.submit%>
+<% end %>
