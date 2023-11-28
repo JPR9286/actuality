@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
     @message = Message.new(message_params)
@@ -14,6 +15,13 @@ class MessagesController < ApplicationController
       render "chatrooms/show", status: :unprocessable_entity
     end
   end
+
+
+  def index
+    @chatrooms = Chatroom.all
+    @messages = Message.all
+  end
+
 
   private
 
