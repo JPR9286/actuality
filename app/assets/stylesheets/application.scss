@@ -10,3 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+//
+body {
+  background-color: $black;
+  color: $white;
+}
+.form-inputs {
+  background-color: $black;
+  color: $white;
+}
+.form-control {
+  background-color: $black;
+  color: $white;
+}
