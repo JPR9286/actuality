@@ -27,7 +27,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 # ===  Ajout pour le projet Actuality ===
 # ajout de la gem dotenv-rails pour gérer les variables d'environnement
-gem "dotenv-rails"
+
 # ajout de la gem cloudinary pour gérer les images
 gem "cloudinary"
 
