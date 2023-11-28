@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :categories, only: :show
   resources :users, only: :show
-  resources :chatrooms, only: [:new, :create, :index, :show] do
+  resources :chatrooms, only: [:new, :create, :index, :show, :destroy] do
     resources :messages, only: :create
   end
 end

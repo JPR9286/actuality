@@ -12,12 +12,20 @@ Chatroom.destroy_all
 Category.destroy_all
 User.destroy_all
 
-user1 = User.create!(email: "bob@mail.com", password: "123456", nickname: "bob")
+user1 = User.create!(email: "adel@mail.com", password: "123456", nickname: "Adel")
 category = Category.create!(name: "foot")
 chatroom = Chatroom.create!(title: "batch1410", user: user1, category:category)
 message = chatroom.messages.create!(user: user1, content: "hello")
 
-user2 = User.create!(email: "toto@mail.com", password: "123456", nickname: "toto")
-category = Category.create!(name: "foot")
+user2 = User.create!(email: "jeremy@mail.com", password: "123456", nickname: "Jeremy")
+category = Category.create!(name: "tennis")
 chatroom = Chatroom.create!(title: "batch1410", user: user2, category:category)
 message = chatroom.messages.create!(user: user2, content: "hello")
+
+user3 = User.create!(email: "jerome@mail.com", password: "123456", nickname: "Jerome")
+chatroom = Chatroom.create!(title: "batch1410", user: user3, category:category)
+message = chatroom.messages.create!(user: user3, content: "hello")
+
+user4 = User.create!(email: "alex@mail.com", password: "123456", nickname: "Alex")
+chatroom = Chatroom.create!(title: "batch1410", user: user4, category:category)
+message = chatroom.messages.create!(user: user4, content: "hello")
