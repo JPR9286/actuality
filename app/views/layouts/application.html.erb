@@ -9,34 +9,38 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    
+
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
+    <%= render "shared/flashes" %>
     <%= yield %>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col ">
+          <%= link_to root_path do %>
+            <%= image_tag("btn_home.png", alt: "Home") %>
+          <% end %>
+          <%= link_to user_session_path do %>
+            <%= image_tag("btn_user.png", alt: "menu") %>
+          <% end %>
+          <%= link_to root_path do %>
+            <%= image_tag("btn_menu.png", alt: "menu") %>
+          <% end %>
+          <%= link_to root_path do %>
+            <%= image_tag("btn_search.png", alt: "search") %>
+          <% end %>
+          <%= link_to chatrooms_path do %>
+            <%= image_tag("btn_chat.png", alt: "chat") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-<div class="row justify-content-between">
-  <button class="btn home">
-      <%= image_tag("btn_home.png", alt: "Home") %>
-    </button>
-    <button class="btn menu">
-      <%= image_tag("btn_menu.png", alt: "Home") %>
-    </button>
-    <button class="btn search">
-      <%= image_tag("btn_search.png", alt: "Home") %>
-    </button>
-    <button class="btn chat">
-      <%= image_tag("btn_chat.png", alt: "Home") %>
-
-</div>
-    </button>
   </body>
 
 </html>
