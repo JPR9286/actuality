@@ -181,6 +181,7 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     netrc (0.11.0)
+    news-api (0.2.0)
     nio4r (2.6.1)
     nokogiri (1.15.5-aarch64-linux)
       racc (~> 1.4)
@@ -300,6 +301,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-21
   arm64-darwin-23
   x86_64-linux
 
@@ -316,6 +318,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
+  news-api
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)
