@@ -55,12 +55,9 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
-<<<<<<< HEAD
 gem "pg_search"
-=======
 gem  "news-api"
 
->>>>>>> 137d7c4459760d5ad6c596b20cfc0305b0aa1a5c
 
 group :development, :test do
   gem "dotenv-rails"
