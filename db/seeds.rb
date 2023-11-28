@@ -18,9 +18,9 @@ chatroom = Chatroom.create!(title: "batch1410", user:user1, category: category)
 message = chatroom.messages.create!(user:user1, content: "hello")
 
 user2 = User.create!(email: "toto@mail.com", password: "123456", nickname: "toto")
-chatroom = Chatroom.create!(title: "batch1410", user:user2, category: category)
+category = Category.create!(name: "foot")
+chatroom = Chatroom.create!(title: "batch1410", user:user2, category:category)
 message = chatroom.messages.create!(user:user2, content: "hello")
-
 
 %w[tech sport code video_game music movie serie].each do |category|
   Category.create!(name: category)

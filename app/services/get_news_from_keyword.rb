@@ -1,9 +1,10 @@
 require 'news-api'
 
+
 class GetNewsFromKeyword
   def initialize(keyword:, since: Date.today)
     @keyword = keyword
-    @news_api = News.new(ENV['NEWS_API_KEY']) 
+    @news_api = News.new(ENV['NEWS_API_KEY'])
     @since = since
   end
 
