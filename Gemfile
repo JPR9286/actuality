@@ -26,13 +26,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # ===  Ajout pour le projet Actuality ===
-# ajout de la gem dotenv-rails pour gérer les variables d'environnement
-
 # ajout de la gem cloudinary pour gérer les images
 gem "cloudinary"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

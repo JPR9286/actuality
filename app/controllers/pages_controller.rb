@@ -1,6 +1,6 @@
-class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+require "news-api"
 
-  def home
-  end
+class PagesController < ApplicationController
+skip_before_action :authenticate_user!, only: [ :home ]
+
 end
