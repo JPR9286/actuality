@@ -18,6 +18,16 @@ category = Category.create!(name: "foot")
 chatroom = Chatroom.create!(title: "batch1410", user:user1, category: category)
 message = chatroom.messages.create!(user:user1, content: "hello")
 
+user2 = User.create!(email: "jeremy@mail.com", password: "123456", nickname: "Jeremy")
+category = Category.create!(name: "tennis")
+message = chatroom.messages.create!(user: user2, content: "hello")
+
+user3 = User.create!(email: "jerome@mail.com", password: "123456", nickname: "Jerome")
+message = chatroom.messages.create!(user: user3, content: "hello")
+
+user4 = User.create!(email: "alex@mail.com", password: "123456", nickname: "Alex")
+message = chatroom.messages.create!(user: user4, content: "hello")
+
 article1 = Article.new(title: "Voyage Culinaire en Asie : Plongée dans les Saveurs Exotiques de la Street Food.", article_url: "toto.com")
 article1.category = Category.all.sample
 article1.save!
@@ -48,15 +58,3 @@ article9.save!
 article10 = Article.new(title: "Facebook et Instagram payants : une plainte pour infraction au droit européen des données personnelles", article_url: "facebook.com")
 article10.category = Category.all.sample
 article10.save!
-user2 = User.create!(email: "jeremy@mail.com", password: "123456", nickname: "Jeremy")
-category = Category.create!(name: "tennis")
-chatroom = Chatroom.create!(title: "batch1410", user: user2, category:category)
-message = chatroom.messages.create!(user: user2, content: "hello")
-
-user3 = User.create!(email: "jerome@mail.com", password: "123456", nickname: "Jerome")
-chatroom = Chatroom.create!(title: "batch1410", user: user3, category:category)
-message = chatroom.messages.create!(user: user3, content: "hello")
-
-user4 = User.create!(email: "alex@mail.com", password: "123456", nickname: "Alex")
-chatroom = Chatroom.create!(title: "batch1410", user: user4, category:category)
-message = chatroom.messages.create!(user: user4, content: "hello")
