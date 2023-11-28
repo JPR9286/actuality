@@ -1,0 +1,30 @@
+
+<h1 class="text-center"> Searching Groups and Chatrooms</h1>
+
+<div class="container">
+  <div class="row justify-content-center my-3">
+      <%= form_with url: searches_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type something.."
+          %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+
+  <h2>Chatrooms</h2>
+      <ul>
+        <% @chatrooms.each do |chatroom| %>
+        <li><%= chatroom.title %></li>
+        <% end %>
+      </ul>
+
+  <h2>Articles</h2>
+    <ul>
+      <% @articles.each do |article| %>
+      <li><%= article.title %></li>
+      <% end %>
+    </ul>
+
+</div>
