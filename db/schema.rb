@@ -10,8 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2023_11_27_161037) do
   # These are extensions that must be enabled in order to support this database
+=======
+
+ActiveRecord::Schema[7.1].define(version: 2023_11_27_161037) do
+>>>>>>> 137d7c4459760d5ad6c596b20cfc0305b0aa1a5c
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -49,7 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_161037) do
     t.date "date_article"
     t.string "article_url"
     t.string "image_url"
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_articles_on_category_id"

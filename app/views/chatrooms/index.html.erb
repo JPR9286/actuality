@@ -1,0 +1,13 @@
+<h1>Chatrooms List</h1>
+<ol>
+  <% @chatrooms.each do |chatroom| %>
+    <li>
+      <%= link_to chatroom.title, chatroom_path(chatroom) %>
+      &ensp;
+      <%= link_to "Delete",
+        chatroom_path(chatroom),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    </li>
+  <% end %>
+</ol>
