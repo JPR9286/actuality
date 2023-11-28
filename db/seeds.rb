@@ -18,13 +18,6 @@ category = Category.create!(name: "foot")
 chatroom = Chatroom.create!(title: "batch1410", user:user1, category: category)
 message = chatroom.messages.create!(user:user1, content: "hello")
 
-
-category = Category.create!(name: "Sport")
-chatroom1 = Chatroom.create!(title: "JO 2024", user:user2, category:category)
-
-category = Category.create!(name: "Voyages")
-chatroom2 = Chatroom.create!(title: "Japon", user:user2, category:category)
-
 article1 = Article.new(title: "Voyage Culinaire en Asie : Plongée dans les Saveurs Exotiques de la Street Food.")
 article1.category = Category.all.sample
 article1.save!
