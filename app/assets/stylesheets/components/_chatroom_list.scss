@@ -1,0 +1,70 @@
+.container {
+  width: 100%;
+  align-content: center;
+  background-color: black;
+  color: white;
+
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title-chatroom {
+    h1 {
+      text-align: center;
+    }
+
+  }
+}
+
+.chat-group {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 30px;
+
+  a {
+    width: 100%;
+  }
+}
+
+.chat-button {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.list-chatroom {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+
+
+  ul {
+    margin-bottom: 5rem;
+    list-style: none;
+  }
+
+  a {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+  }
+
+}
+
+
+.button-create-chat {
+  position: fixed;
+  bottom: 59px;
+  width: 100%;
+  background: black;
+  padding: 20px;
+  text-align: center;
+}

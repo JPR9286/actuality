@@ -30,3 +30,5 @@ end
 # articles = GetNewsFromKeyword.new(keyword: 'Jeux olympiques').call
 # articles.size
 # SaveNewsInDb.new(news: articles).call
+
+GetNewsFromKeyword.new('kilian').call
