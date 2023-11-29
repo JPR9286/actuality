@@ -2,7 +2,7 @@ require 'news-api'
 
 
 class GetNewsFromKeyword
-  def initialize(keyword:, since: Date.today)
+  def initialize(keyword:, since: Date.today - 3.days)
     @keyword = keyword
     @news_api = News.new(ENV['NEWS_API_KEY'])
     @since = since
@@ -26,5 +26,9 @@ class GetNewsFromKeyword
   end
 end
 
-
 # GetNewsFromKeyword.new('kilian').call
+# articles = GetNewsFromKeyword.new(keyword: 'Jeux olympiques').call
+# articles.size
+# SaveNewsInDb.new(news: articles).call
+
+GetNewsFromKeyword.new('kilian').call

@@ -1,7 +1,9 @@
-require "news-api"
 
 class PagesController < ApplicationController
-skip_before_action :authenticate_user!, only: [ :home ]
 
+  def home
+    fetcher = FetchAndSaveArticlesFromBing.new(keyword: "trending", freshness: "week")
+    fetcher.call
+    @articles = Article.all
+  end
 end
-
