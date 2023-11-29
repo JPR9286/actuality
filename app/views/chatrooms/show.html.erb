@@ -1,10 +1,15 @@
-<div class="container chatroom"
+<div class="chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
-
+<div class="chat-title-exit">
   <h1>#<%= @chatroom.title %></h1>
-  <%= link_to "Exit", chatrooms_path %>
+  <div class="exit-chat">
+    <%= link_to chatrooms_path do %>
+    <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #fb0915;"></i>
+    <% end %>
+  </div>
+</div>
 
 
   <div class="messages" data-chatroom-subscription-target="messages">
@@ -22,6 +27,8 @@
     placeholder: "Message",
     wrapper_html: {class: "flex-grow-1"}
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <div id="button-send-chat">
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  </div>
 <% end %>
 </div>
