@@ -18,10 +18,15 @@ body {
   color: $white;
 }
 
+.min-h-100 {
+  min-height: calc(100vh - 66px);
+}
+
 .form-inputs {
   background-color: $black;
   color: $white;
 }
+
 .form-control {
   background-color: $black;
   color: $white;

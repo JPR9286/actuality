@@ -27,4 +27,4 @@ class GetNewsFromKeyword
 end
 
 
-# GetNewsFromKeyword.new('kilian').call
+GetNewsFromKeyword.new('kilian').call

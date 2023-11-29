@@ -15,29 +15,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col ">
-          <%= link_to root_path do %>
-            <%= image_tag("btn_home.png", alt: "Home") %>
-          <% end %>
-          <%= link_to user_session_path do %>
-            <%= image_tag("btn_user.png", alt: "menu") %>
-          <% end %>
-          <%= link_to root_path do %>
-            <%= image_tag("btn_menu.png", alt: "menu") %>
-          <% end %>
-          <%= link_to searches_path do %>
-            <%= image_tag("btn_search.png", alt: "search") %>
-          <% end %>
-          <%= link_to chatrooms_path do %>
-            <%= image_tag("btn_chat.png", alt: "chat") %>
-          <% end %>
-        </div>
-      </div>
+  <body>
+    <%= render "shared/navbar" %>
+    <div class="container min-h-100 mb-5">
+      <%= render "shared/flashes" %>
+      <%= yield %>
+      <%= render "shared/footer" %>
+
     </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

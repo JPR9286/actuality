@@ -1,14 +1,22 @@
-<h1>Chatrooms List</h1>
+<div class="chatroom-list">
+  <h1>Chatrooms List</h1>
+</div>
+
+<div class="list-chatroom flex-column">
   <%= link_to  "[+] Create new Chat", new_chatroom_path %>&ensp;
-<ol>
-  <% @chatrooms.each do |chatroom| %>
-    <li>
-      <%= link_to chatroom.title, chatroom_path(chatroom) %>
-      &ensp;
-      <%= link_to "Delete",
-        chatroom_path(chatroom),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
-    </li>
-  <% end %>
-</ol>
+  <ul class="p-0">
+    <% @chatrooms.each do |chatroom| %>
+      <div class="chat-button">
+        <li>
+          <div class="chat-group">
+            <%= link_to chatroom.title, chatroom_path(chatroom) %>&ensp;
+
+            <%= link_to chatroom_path(chatroom), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash-can fa-xl" style="color: #0f0f0f;"></i>
+            <% end %>
+          </div>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>
