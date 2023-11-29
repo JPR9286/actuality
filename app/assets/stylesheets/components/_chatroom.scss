@@ -1,7 +1,6 @@
 .chatroom {
-  background: white;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,8 +18,8 @@
     padding: 1rem;
   }
 
+
   #new_message {
-    overflow: scroll;
     border-top: 1px solid $gray-200;
     padding: 1rem;
 
@@ -28,4 +27,22 @@
       margin-bottom: 0;
     }
   }
+}
+
+#button-send-chat {
+  margin-left: 10px;
+}
+
+.chat-title-exit {
+  display: flex;
+  justify-content: space-between;
+
+  .exit-chat {
+    margin-top: 20px;
+  }
+
+}
+
+#message_content {
+  line-height: 1.9;
 }

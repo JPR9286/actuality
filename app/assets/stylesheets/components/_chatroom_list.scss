@@ -8,6 +8,13 @@
     display: flex;
     justify-content: center;
   }
+
+  .title-chatroom {
+    h1 {
+      text-align: center;
+    }
+
+  }
 }
 
 .chat-group {
@@ -19,6 +26,10 @@
   margin: 10px;
   padding: 10px;
   border-radius: 30px;
+
+  a {
+    width: 100%;
+  }
 }
 
 .chat-button {
@@ -28,10 +39,14 @@
 }
 
 .list-chatroom {
+  position: relative;
   display: flex;
   align-items: center;
 
+
+
   ul {
+    margin-bottom: 5rem;
     list-style: none;
   }
 
@@ -41,4 +56,15 @@
     color: black;
     text-decoration: none;
   }
+
+}
+
+
+.button-create-chat {
+  position: fixed;
+  bottom: 59px;
+  width: 100%;
+  background: black;
+  padding: 20px;
+  text-align: center;
 }
