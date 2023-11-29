@@ -9,4 +9,6 @@ class Article < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  validates :title, uniqueness: { scope: :date_article }
 end
