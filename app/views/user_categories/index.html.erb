@@ -1,0 +1,12 @@
+<h1>My categories</h1>
+
+<% @user_categories.do |user_categorie| %>
+  <li>
+    <%= link_to user_categorie.title, chatroom_path(chatroom) %>
+    &ensp;
+    <%= link_to "Delete",
+      chatroom_path(chatroom),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+  </li>
+<% end %>
