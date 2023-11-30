@@ -22,7 +22,7 @@
         <% end %>
     </div>
 
-  <i class="fa-solid fa-circle-plus"> see more </i>
+  <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
 
   <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
     <div class="d-flex flex-column">
@@ -44,12 +44,29 @@
             <%# a enlever apres si articles a une description %>
               <p><%= article.description.truncate(100) %></p>
             <% end %>
-          <%# link_to chatroom_messages_path(chatroom), class: "btn" do %>
-          <div class="p-1 rounded-circle align-self-end bubble-share">
-            <i class="fa-solid fa-share"></i>
+
+          <div class="text-center">
+                <%= link_to article.article_url do %>
+                  <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
+                <% end %>
           </div>
-          <%# end %>
+
+          <div class="p-1 rounded-circle align-self-end bubble-share">
+          <%#
+          1.le btn share me renvoie vers toutes les chatrooms
+          2.je sélectionne celle dans laquelle je veux partager infos %>
+          <%# link_to chatrooms_path do %>
+              <i class="fa-solid fa-share"></i>
+            <%# end %>
+          </div>
+
+           <%# sinon:
+          1.je choisis au préalable la chatroom dans laquelle je veux partager l'article
+          2. --> le btn share me renvoie directement dans la show de ma chatroom %>
+          <%# link_to chatroom_messages_path(chatroom), class: "btn" do %>
+
           </div>
         </div>
       <% end %>
     </div>
+</div>

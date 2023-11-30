@@ -30,6 +30,7 @@
 }
 
 #button-send-chat {
+
   margin-left: 10px;
 }
 
@@ -44,5 +45,8 @@
 }
 
 #message_content {
+  border-radius: 10px;
+  border-style:dotted;
+  background-color: $white;
   line-height: 1.9;
 }
