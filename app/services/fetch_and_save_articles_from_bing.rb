@@ -2,6 +2,7 @@ class FetchAndSaveArticlesFromBing
   def initialize(keyword:, freshness: "week")
     @keyword = keyword
     @freshness = freshness
+    @summary = summary
   end
 
   def call
@@ -9,5 +10,3 @@ class FetchAndSaveArticlesFromBing
     SaveNewsFromBingInDb.new(articles: bing_articles).call
   end
 end
-
-# FetchAndSaveArticlesFromBing.new(keyword: "anne hidalgo", freshness: "week").call
