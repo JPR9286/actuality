@@ -7,7 +7,13 @@ class ExtractTextFromUrl
   def call
     puts "Appel à l'API..."
     response = RestClient.get url, headers.merge({ params: params })
-    JSON.parse(response.body)["objects"][0]["text"]
+    parsed_response = JSON.parse(response.body)
+    unless parsed_response.key?("objects")
+      puts "API did not extract text"
+      return nil
+    end
+
+    p JSON.parse(response.body)["objects"][0]["text"]
   end
 
   def headers

@@ -5,6 +5,8 @@ class AskOpenaiForSummary
   end
 
   def call
+    return unless @text.present?
+
     response = @client.chat(parameters: {
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt}]

@@ -19,6 +19,8 @@ class GetNewsFromBing
     end
 
     return @articles
+  rescue RestClient::ExceptionWithResponse => e
+    return nil
   end
 
   private
