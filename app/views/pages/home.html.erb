@@ -2,7 +2,9 @@
 <h1>Actuality </h1>
 <% @articles.each do |article| %>
   <div style="margin-bottom: 40px; backround-color : black;">
+  <% if article.image_url %>
     <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
+  <% end %>
     <div style="padding: 20px;">
       <h2><%= article.title%></h2>
       <p><%= article.date_article %></p>

@@ -3,24 +3,25 @@
   padding: 8px;
 }
 
-.sender-style, .receiver-style {
+.sender-style,
+.receiver-style {
   width: 70%;
-  max-width: 400px;
+  max-width: 900px;
   border-radius: 4px;
   padding: 8px;
-  min-height: 50px;
+  min-height: 30px;
   border-radius: 15px;
 }
 
-.receiver-style{
+.receiver-style {
   background-color: rgb(237, 104, 104);
-  width: 300px;
+  width: 200px;
   padding: 15px;
   color: black;
 }
 
-.sender-style{
-  width: 300px;
+.sender-style {
+  width: 200px;
   padding: 15px;
   background-color: #b9e0d4;
   color: black;
