@@ -20,6 +20,8 @@ class GetNewsFromBing
 
     puts "#{@articles.size} articles fetched!"
     return @articles
+  rescue RestClient::ExceptionWithResponse => e
+    return nil
   end
 
   private
