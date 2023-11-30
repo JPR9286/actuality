@@ -1,22 +1,22 @@
 
 <h1>Actuality </h1>
 <% @articles.each do |article| %>
-  <div style="margin-bottom: 40px; backround-color : black;">
-  <% if article.image_url %>
-    <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
-  <% end %>
-    <div style="padding: 20px;">
-      <h2><%= article.title%></h2>
-      <p><%= article.date_article %></p>
-      <p><%= article.description %></p>
-      <p><%= article.source %></p>
-      <div class="text-center">
-        <%= link_to article.article_url do %>
-          <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
-        <% end %>
+  <%= link_to article_path(article) do %>
+    <div style="margin-bottom: 40px; backround-color : black;">
+      <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
+      <div style="padding: 20px;">
+        <h2><%= article.title%></h2>
+        <p><%= article.date_article %></p>
+        <p><%= article.description %></p>
+        <p><%= article.source %></p>
+        <div class="text-center">
+          <%= link_to article.article_url do %>
+            <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <% unless article.equal?(@articles.last) %>
     <hr style="border-top: 1px solid white;">
     <% end %>
