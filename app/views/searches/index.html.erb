@@ -51,19 +51,60 @@
                 <% end %>
           </div>
 
-          <div class="p-1 rounded-circle align-self-end bubble-share">
-          <%#
-          1.le btn share me renvoie vers toutes les chatrooms
-          2.je sélectionne celle dans laquelle je veux partager infos %>
-          <%# link_to chatrooms_path do %>
-              <i class="fa-solid fa-share"></i>
-            <%# end %>
+
+<% article = Article.last %>
+<button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal">
+  <i class="fa-solid fa-share"></i>
+</button>
+
+<div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="shareModalLabel">Share ur Article</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="card-article mb-5">
+          <div class="image-card">
+            <% if article.image_url  %>
+            <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
+            <%# else image par defaut %>
+            <% end %>
+          </div>
+          <div class="title-card mt-2">
+            <p><%= article.title %></p>
+          </div>
+          <div class="description-card">
+            <% if article.description %>
+              <p><%= article.description.truncate(100) %></p>
+            <% end %>
+
+            <div class="text-center">
+                <%= link_to article.article_url do %>
+                  <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
+                <% end %>
+            </div>
           </div>
 
-           <%# sinon:
-          1.je choisis au préalable la chatroom dans laquelle je veux partager l'article
-          2. --> le btn share me renvoie directement dans la show de ma chatroom %>
-          <%# link_to chatroom_messages_path(chatroom), class: "btn" do %>
+        <div data-controller="share-article">
+          <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
+          <%= simple_form_for("", url: "") do |f| %>
+          <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
+          <% end %>
+
+           <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
+          <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
+          <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
+          <%= f.submit %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
           </div>
         </div>
