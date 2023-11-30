@@ -1,7 +1,14 @@
-<div id="message-<%= message.id %>" data-mon-controller-target='messageContent' data-mon-controller-id="<%= message.id %>">
+<div id="message-<%= message.id %>" data-chatroom-subscription-message-id-value="<%= message.id %>"
+  data-action="click->chatroom-subscription#comment"
+  data-chatroom-subscription-target="comment">
+  <div>
+      <strong><%= message.response_author %></strong>
+      <p><%= message.response %></p>
+  </div>
   <small>
     <strong><%= message.user.nickname %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p><%= message.content %></p>
+  <button class="btn d-none" data-comment-message-target="button" data-action="click->chatroom-subscription#fillForm" >Répondre</button>
 </div>
