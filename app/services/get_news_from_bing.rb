@@ -1,7 +1,7 @@
 require 'rest-client'
 
 class GetNewsFromBing
-  def initialize(keyword:, freshness: "week")
+  def initialize(keyword: nil, freshness: "week")
     @keyword = keyword
     @freshness = freshness
     @articles = []
@@ -18,6 +18,7 @@ class GetNewsFromBing
       puts "#{@articles.size} récupérés"
     end
 
+    puts "#{@articles.size} articles fetched!"
     return @articles
   rescue RestClient::ExceptionWithResponse => e
     return nil
@@ -40,10 +41,12 @@ class GetNewsFromBing
 
   def params(offset = nil)
     params = {
-      q: @keyword,
       freshness: @freshness,
       originalImg: true
     }
+    if @keyword
+      params[:q] = @keyword
+    end
     if offset
       params[:offset] = offset
     end

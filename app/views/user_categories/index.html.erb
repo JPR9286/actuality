@@ -1,0 +1,12 @@
+<h1>My categories</h1>
+
+<%= simple_form_for(current_user,
+                  url:reset_user_categories_path,
+                  method: :post) do |f| %>
+  <%= f.association :categories,
+                    as: :check_boxes,
+                    include_blank: false, include_hidden: false,
+                    input_html: { class: "tag-selector" },
+                    item_wrapper_class: 'tag-item' %>
+  <%= f.submit %>
+<% end %>
