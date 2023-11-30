@@ -1,0 +1,28 @@
+.message-row {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.sender-style,
+.receiver-style {
+  width: 70%;
+  max-width: 900px;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 30px;
+  border-radius: 15px;
+}
+
+.receiver-style {
+  background-color: rgb(237, 104, 104);
+  width: 200px;
+  padding: 15px;
+  color: black;
+}
+
+.sender-style {
+  width: 200px;
+  padding: 15px;
+  background-color: #b9e0d4;
+  color: black;
+}
