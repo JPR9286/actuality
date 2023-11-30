@@ -5,7 +5,7 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
   static values = { chatroomId: Number }
-  static targets = ["messages"]
+  static targets = ["messages", "comment", "button", "responseInput", "resonseAuthorInput", "focusInput"]
   static values = { chatroomId: Number, currentUserId: Number }
 
   connect() {
@@ -18,11 +18,27 @@ export default class extends Controller {
   }
   resetForm(event) {
     event.target.reset()
-    console.log('send')
+
+  }
+
+
+  comment(event) {
+    const message = event.currentTarget;
+
+    message.querySelector("button").classList.remove("d-none")
+
   }
 
   disconnect() {
     this.channel.unsubscribe()
+  }
+
+  fillForm(e) {
+    this.messageContent = e.currentTarget.closest("div").querySelector("p").innerText
+    this.messageAuthor = e.currentTarget.closest("div").querySelector("small").innerText
+    this.responseInputTarget.value = this.messageContent
+    this.resonseAuthorInputTarget.value = this.messageAuthor
+    this.focusInputTarget.focus()
   }
 
   #insertMessageAndScrollDown(data) {
@@ -30,7 +46,8 @@ export default class extends Controller {
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
-    this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
+    this.responseInputTarget.value = ""
+    this.resonseAuthorInputTarget.value = ""
     this.#scrollDown()
   }
 
