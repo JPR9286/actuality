@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:new, :create, :index, :show, :destroy] do
     resources :messages, only: :create
   end
+  resources :articles, only: :show
+
   resources :my_chatrooms, only: [:index]
   resources :articles, only: :show
   resources :searches, only: [:index]
