@@ -353,7 +353,6 @@ DEPENDENCIES
   rails (~> 7.1.2)
   redis (>= 4.0.1)
   rest-client
-
   ruby-openai
   sassc-rails
   selenium-webdriver
