@@ -1,6 +1,10 @@
 <p> New chatroom</p>
-<%= simple_form_for @chatroom do  |f| %>
+<%# Ajout d'un bouton pour sélectionner une image parmi les images disponibles dans l'illustration des articles %>
+
+
+<%= simple_form_for @chatroom, data: { controller: "chatrooms-select-image" } do |f| %>
   <%= f.input :title %>
-  <%= f.association :category %>
-  <%= f.submit%>
+  <%= f.association :category, input_html: { data: { chatrooms_select_image_target: "category", action: "change->chatrooms-select-image#categoryChanged" } } %>
+  <div data-chatrooms-select-image-target="imageSelectContainer"></div>
+  <%= f.submit %>
 <% end %>

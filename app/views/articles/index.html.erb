@@ -1,0 +1,15 @@
+
+<%# affiche tous les articles avec le nom et l'image %>
+<h1> index articles</h1>
+
+<div class="row">
+  <div class="col flex">
+    <% @articles.each do |article| %>%
+      <%= article.title %>
+      <%= image_tag article.image_url, style: 'width: 100%;' %>
+    <% end %>
+
+  </div>
+
+
+</div>
