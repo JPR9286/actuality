@@ -29,9 +29,10 @@
     <div class="d-flex flex-column">
       <% @articles.each do |article| %>
       <%# <span class="border border-dark"></span> %>
+      <%= link_to article_path(article) do  %>
         <div class="card-article mb-5">
           <div class="image-card">
-            <% if article.image_url  %>
+            <% if article.image_url %>
             <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
             <%# else image par defaut %>
             <% end %>
@@ -45,15 +46,8 @@
             <%# a enlever apres si articles a une description %>
               <p><%= article.description.truncate(100) %></p>
             <% end %>
+          <% end %>
 
-          <div class="text-center">
-                <%= link_to article.article_url do %>
-                  <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
-                <% end %>
-          </div>
-
-
-<%# article = Article.last %>
         <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
           <i class="fa-solid fa-share"></i>
         </button>
@@ -80,11 +74,6 @@
                       <%# if article.description %>
                       <p><%= article.description.truncate(100) %></p>
                       <%# end %>
-                    <div class="text-center">
-                      <%= link_to article.article_url do %>
-                        <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
-                      <% end %>
-                    </div>
                   </div>
 
                 <div data-controller="share-article">
@@ -104,8 +93,8 @@
             </div>
           </div>
         </div>
+      </div>
 
-          </div>
         </div>
       <% end %>
     </div>
