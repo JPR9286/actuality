@@ -42,7 +42,8 @@ class GetNewsFromBing
   def params(offset = nil)
     params = {
       freshness: @freshness,
-      originalImg: true
+      originalImg: true,
+      mkt: "fr-FR"
     }
     if @keyword
       params[:q] = @keyword
