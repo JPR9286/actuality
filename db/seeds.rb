@@ -28,9 +28,9 @@ message = chatroom.messages.create!(user: user3, content: "hello")
 user4 = User.create!(email: "alex@mail.com", password: "123456", nickname: "Alex")
 message = chatroom.messages.create!(user: user4, content: "hello")
 
-# article1 = Article.new(title: "Voyage Culinaire en Asie : Plongée dans les Saveurs Exotiques de la Street Food.", article_url: "toto.com")
-# article1.category = Category.all.sample
-# article1.save!
+article1 = Article.new(title: "Voyage Culinaire en Asie : Plongée dans les Saveurs Exotiques de la Street Food.", article_url: "tot.com", image_url: "https://images.unsplash.com/photo-1495214783159-3503fd1b572d")
+article1.category = Category.all.sample
+article1.save!
 # article2 = Article.new(title: "Victoire 4-0 du PSG dans le classico contre marseille", article_url: "toto.com")
 # article2.category = Category.all.sample
 # article2.save!
