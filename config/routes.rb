@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :articles, only: :show
 
   resources :my_chatrooms, only: [:index]
+  resources :articles, only: :show
   resources :searches, only: [:index]
 
 end
