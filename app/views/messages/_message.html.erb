@@ -8,14 +8,14 @@
 
 
         <% if message.article_id %>
-
           <% article = Article.find(message.article_id)  %>
           <%= link_to article_path(message.article_id) do %>
           <div class="img-article-chat">
-            <%=image_tag article.image_url, crop: :fill, style:"width: 120px";%>
+            <%=image_tag article.image_url, crop: :fill;%>
           </div>
-
-          <%= article.title %>
+          <div class="chat-title-article">
+            <%= article.title %>
+          </div>
           <% end %>
         <% end %>
     </div>
