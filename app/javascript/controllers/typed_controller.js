@@ -8,9 +8,11 @@ export default class extends Controller {
   }
 
   connect() {
-    const typed = new Typed(this.element, {
-      strings: [this.textValue],
-      typeSpeed: 2,
-    });
+    if (this.textValue.length >0){
+      const typed = new Typed(this.element, {
+        strings: [this.textValue],
+        typeSpeed: 5,
+      });
+    }
   }
 }

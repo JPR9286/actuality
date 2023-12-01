@@ -1,5 +1,5 @@
 class FetchAndSaveArticlesFromBing
-  def initialize(keyword: nil, freshness: "week", category_present: true)
+  def initialize(keyword: "", freshness: "week", category_present: true)
     @keyword = keyword
     @freshness = freshness
     @category_present = category_present

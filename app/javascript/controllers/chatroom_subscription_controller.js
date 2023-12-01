@@ -5,7 +5,7 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
   static values = { chatroomId: Number }
-  static targets = ["messages", "comment", "button", "responseInput", "resonseAuthorInput", "focusInput"]
+  static targets = ["messages", "comment", "button", "responseInput", "resonseAuthorInput", "focusInput", "messageContent"]
   static values = { chatroomId: Number, currentUserId: Number }
 
   connect() {
@@ -34,8 +34,9 @@ export default class extends Controller {
   }
 
   fillForm(e) {
-    this.messageContent = e.currentTarget.closest("div").querySelector("p").innerText
+    this.messageContent = e.currentTarget.previousElementSibling.innerText
     this.messageAuthor = e.currentTarget.closest("div").querySelector("small").innerText
+    console.log(this.messageContent);
     this.responseInputTarget.value = this.messageContent
     this.resonseAuthorInputTarget.value = this.messageAuthor
     this.focusInputTarget.focus()
