@@ -1,6 +1,3 @@
-require 'news-api'
-
-
 class GetNewsFromKeyword
   def initialize(keyword:, since: Date.today - 3.days)
     @keyword = keyword
@@ -31,4 +28,4 @@ end
 # articles.size
 # SaveNewsInDb.new(news: articles).call
 
-GetNewsFromKeyword.new('kilian').call
+# GetNewsFromKeyword.new('kilian').call

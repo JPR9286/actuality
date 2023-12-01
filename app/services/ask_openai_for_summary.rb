@@ -9,13 +9,14 @@ class AskOpenaiForSummary
 
     response = @client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: prompt}]
+      messages: [{ role: "user", content: prompt}],
+      temperature: 0.2,
     })
     response['choices'].first['message']['content']
   end
 
   def prompt
-    "À la manière d'un article de presse, peux-tu me générer un résumé en 50 mots du texte suivant : #{@text}."
+    "résume en 50 mots le texte suivant sans cité sa source : #{@text}."
   end
 
 end
