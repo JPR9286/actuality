@@ -1,0 +1,12 @@
+<%# utilise @images pour afficher les images sur 3 colonnes. En cliquant sur une image, on met à jour image_url de la catégorie %>
+<h2>images</h2>
+
+<div class="row">
+
+  <% @images.each do |image| %>
+    <div class="col-md-4">
+      <%= image_tag image.image_url, class: "img-thumbnail", data: { chatrooms_select_image_target: "image", action: "click->chatrooms-select-image#imageClicked" } %>
+    </div>
+  <% end %>
+<%# affiche la sélection d'image à partir de leur url contenu dans image_url et met à jour image_url de la catégorie à partir de image_url contenu dans @images %>
+</div>
