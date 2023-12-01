@@ -10,7 +10,7 @@ export default class extends Controller {
   connect() {
     const typed = new Typed(this.element, {
       strings: [this.textValue],
-      typeSpeed: 20,
+      typeSpeed: 10,
     });
   }
 }
