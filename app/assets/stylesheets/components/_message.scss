@@ -5,7 +5,6 @@
 
 .sender-style,
 .receiver-style {
-  
   width: 70%;
   max-width: 400px;
   border-radius: 4px;
@@ -27,3 +26,18 @@
   background-color: #b9e0d4;
   color: black;
 }
+
+.img-article-chat {
+
+  padding-top: 17px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.comment-this-message {
+  position: relative;
+  margin-left: -21px;
+  margin-bottom: -16px;
+}
+
+
