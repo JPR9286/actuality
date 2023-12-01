@@ -20,6 +20,7 @@ class Article < ApplicationRecord
 
   def set_summary
     text = ExtractTextFromUrl.new(article_url).call
+    return unless text.present?
     openai_summary = AskOpenaiForSummary.new(text).call
     self.update(summary: openai_summary)
   end
