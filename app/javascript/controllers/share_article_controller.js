@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
   }
 
-  setChatroom() {
+  setChatroom(event) {
     console.log(event.currentTarget.value)
     this.commentFormTarget.action = `/chatrooms/${event.currentTarget.value}/messages`
   }

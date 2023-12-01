@@ -46,7 +46,17 @@
 
 #message_content {
   border-radius: 10px;
-  border-style:dotted;
+  border-style: dotted;
   background-color: $white;
   line-height: 1.9;
+}
+
+.comment-message {
+  position: relative;
+  margin-left: 40px;
+  width: 200px;
+  text-align: center;
+  width: 80%;
+  border-radius: 15px;
+  background-color: rgba(96, 188, 78, 0.741);
 }
