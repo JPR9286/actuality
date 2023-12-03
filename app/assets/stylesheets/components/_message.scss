@@ -6,8 +6,8 @@
 .sender-style,
 .receiver-style {
   width: 70%;
+  text-align: center;
   max-width: 400px;
-  padding: 8px;
   min-height: 30px;
   border-radius: 15px;
 }
@@ -31,10 +31,9 @@
   border-bottom-left-radius: 20px;
   width: 250px;
   min-height: 80px;
-  padding: 5px;
   padding-top: 0;
   background-color: #20A090;;
-  color: rgb(20, 18, 18);
+  color: rgb(234, 229, 229);
 }
 
 .img-article-chat {
@@ -49,9 +48,9 @@
 
 .comment-this-message {
   position: relative;
-  margin-left: 0px;
+  margin-left: 200px;
   margin-bottom: -10px;
-  
+
 }
 
 .chat-title-article {

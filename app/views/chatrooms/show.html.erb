@@ -18,6 +18,9 @@
     <% @chatroom.messages.each do |message| %>
     <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
       <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+
+        <%= ((Time.now - message.created_at) / 60).round %> minutes ago
+
         <%= render "messages/message", message: message %>
       </div>
     </div>
