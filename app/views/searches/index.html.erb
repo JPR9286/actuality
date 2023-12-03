@@ -85,7 +85,7 @@
                   <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
                     <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
                     <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
-                    <%= f.submit %>
+                    <%= f.submit "Partager l'article" %>
                   <% end %>
                 </div>
 
