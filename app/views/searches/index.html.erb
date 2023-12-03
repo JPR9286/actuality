@@ -91,21 +91,12 @@
                     <%= simple_form_for("", url: "") do |f| %>
                       <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
                     <% end %>
-
-<<<<<<< HEAD
                   <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
                     <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
                     <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
                     <%= f.submit "Partager l'article" %>
                   <% end %>
-=======
-                    <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                      <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
-                      <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
-                      <%= f.submit %>
-                    <% end %>
                   </div>
->>>>>>> d83e4c38670fbd55a087081f672a01646d2b497e
                 </div>
               </div>
             </div>
