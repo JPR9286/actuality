@@ -19,7 +19,6 @@ user2 = User.create!(email: "jeremy@mail.com", password: "123456", nickname: "Je
 user3 = User.create!(email: "jerome@mail.com", password: "123456", nickname: "Jerome")
 user4 = User.create!(email: "alex@mail.com", password: "123456", nickname: "Alex")
 
-# Assurez-vous d'avoir un modèle Category ou supprimez cette partie si inutile
 category = Category.create!(name: "foot")
 
 # Création de la chatroom
@@ -42,13 +41,23 @@ chatroom.messages.create!(user: user4, content: "Totalement. Mais bon, avec ce q
 chatroom.messages.create!(user: user1, content: "Allez, on croise les doigts pour eux ! PSG en force !")
 chatroom.messages.create!(user: user2, content: "Paris est magique ! On y croit à fond pour cette saison !")
 
-# Note : Ce code suppose que le modèle Chatroom et ses associations avec le modèle Message sont correctement configurés dans votre application Rails.
+# Messages pour une discussion entre supporters du PSG et de l'OM
+chatroom = Chatroom.create!(title: "PSG - OM ", user:user2, category: category)
 
-# Note : Ce code suppose que les modèles User, Chatroom, Message, et Category sont correctement configurés dans votre application Rails.
-
-# Assumant que la chatroom et les utilisateurs (user1 à user4) ont déjà été créés
+chatroom.messages.create!(user: user1, content: "Salut les gars, vous avez vu le match PSG-OM ? Quelle intensité !")
+chatroom.messages.create!(user: user2, content: "Ouais, c'était serré. Dommage que l'OM n'ait pas pu concrétiser ses occasions.")
+chatroom.messages.create!(user: user3, content: "Le PSG a bien joué, mais franchement, l'arbitrage n'était pas top... Ça a joué en notre faveur.")
+chatroom.messages.create!(user: user4, content: "C'est clair, l'arbitre a été un peu sévère sur certains coups. Mais bon, le niveau de jeu était quand même élevé.")
+chatroom.messages.create!(user: user1, content: "Exact, les deux équipes ont montré du beau foot. C'était un match digne de ce nom.")
+chatroom.messages.create!(user: user2, content: "Pour sûr. L'OM a eu des moments brillants, mais le PSG a su maintenir la pression.")
+chatroom.messages.create!(user: user3, content: "Faut avouer, le but de Neymar était incroyable. Il a vraiment fait la différence.")
+chatroom.messages.create!(user: user4, content: "C'est vrai, mais Payet n'était pas loin de marquer aussi. Ça aurait pu changer la donne.")
+chatroom.messages.create!(user: user1, content: "En tout cas, ça promet pour le reste de la saison. Le championnat reste ouvert !")
+chatroom.messages.create!(user: user2, content: "C'est sûr, l'OM n'a pas dit son dernier mot. On se retrouvera pour la revanche !")
 
 # Création de la chatroom
+category = Category.create!(name: "JO")
+
 chatroom = Chatroom.create!(title: "JO 2024", user:user3, category: category)
 # Messages dans la discussion sur les transports en commun à Paris pour les JO 2024
 chatroom.messages.create!(user: user1, content: "Pensez-vous que les transports en commun à Paris seront prêts pour les JO 2024 ?")
@@ -62,6 +71,9 @@ chatroom.messages.create!(user: user4, content: "Bonne question. Ce serait bien 
 chatroom.messages.create!(user: user1, content: "Ils devraient aussi renforcer la sécurité dans les stations et les trains.")
 chatroom.messages.create!(user: user2, content: "En tout cas, c'est une occasion en or pour Paris de montrer sa capacité à accueillir un événement mondial.")
 
+
+category = Category.create!(name: "Code")
+
 chatroom = Chatroom.create!(title: "Le Wagon", user:user2, category: category)
 # Messages sur la formation Le Wagon pour apprendre à développer en 9 semaines
 chatroom.messages.create!(user: user1, content: "Avez-vous des retours sur la formation de 9 semaines de Le Wagon pour apprendre le développement web ?")
@@ -74,5 +86,3 @@ chatroom.messages.create!(user: user3, content: "Absolument, ils commencent par 
 chatroom.messages.create!(user: user4, content: "Leur curriculum inclut aussi des leçons sur le travail en équipe et sur la gestion de projet, ce qui est essentiel dans le monde réel.")
 chatroom.messages.create!(user: user1, content: "Je pense que le plus difficile est de garder le rythme, c'est vraiment intensif.")
 chatroom.messages.create!(user: user2, content: "Oui, mais si tu es motivé et prêt à t'investir, ça semble être une excellente opportunité.")
-
-# Note : Ce code suppose que le modèle Chatroom et ses associations avec le modèle Message sont correctement configurés dans votre application Rails.
