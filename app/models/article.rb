@@ -12,11 +12,11 @@ class Article < ApplicationRecord
 
   validates :title, uniqueness: { scope: :date_article }
 
-  def summary
-    set_summary if super.nil?
+  # def summary
+  #   set_summary if super.nil?
 
-    super
-  end
+  #   super
+  # end
 
   def set_summary
     # text = ExtractTextFromUrl.new(article_url).call['text']
