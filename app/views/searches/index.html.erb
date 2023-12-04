@@ -26,34 +26,38 @@
   <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
 
   <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
-    <div class="d-flex flex-column">
-      <% @articles.each do |article| %>
+
+  <div class="d-flex flex-column">
+    <% @articles.each do |article| %>
       <%# <span class="border border-dark"></span> %>
-        <div class="card-article mb-5">
+
+      <div class="card-article mb-5">
+
+        <%= link_to article_path(article) do  %>
+
           <div class="image-card">
-            <% if article.image_url  %>
-            <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
-            <%# else image par defaut %>
+            <% if article.image_url %>
+              <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
+              <%# else image par defaut %>
             <% end %>
           </div>
-          <div class="title-card mt-2">
-            <%# <li>= article.title</li> %>
-            <p><%= article.title %></p>
+
+          <div class="p-3">
+            <div class="title-card mt-2">
+              <%# <li>= article.title</li> %>
+              <p><%= article.title %></p>
+            </div>
+
+            <div class="description-card">
+              <% if article.description %>
+              <%# a enlever apres si articles a une description %>
+                <p><%= article.description.truncate(100) %></p>
+              <% end %>
+            </div>
           </div>
-          <div class="description-card">
-            <% if article.description %>
-            <%# a enlever apres si articles a une description %>
-              <p><%= article.description.truncate(100) %></p>
-            <% end %>
 
-          <div class="text-center">
-                <%= link_to article.article_url do %>
-                  <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
-                <% end %>
-          </div>
+        <% end %>
 
-
-<%# article = Article.last %>
         <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
           <i class="fa-solid fa-share"></i>
         </button>
@@ -80,34 +84,29 @@
                       <%# if article.description %>
                       <p><%= article.description.truncate(100) %></p>
                       <%# end %>
-                    <div class="text-center">
-                      <%= link_to article.article_url do %>
-                        <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
-                      <% end %>
-                    </div>
                   </div>
 
-                <div data-controller="share-article">
-                  <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
-                  <%= simple_form_for("", url: "") do |f| %>
-                    <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
-                  <% end %>
+                  <div data-controller="share-article">
+                    <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
+                    <%= simple_form_for("", url: "") do |f| %>
+                      <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
+                    <% end %>
 
-                  <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                    <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
-                    <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
-                    <%= f.submit %>
-                  <% end %>
+                    <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
+                      <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
+                      <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
+                      <%= f.submit %>
+                    <% end %>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
 
-          </div>
-        </div>
-      <% end %>
-    </div>
+      </div>
+
+    <% end %>
   </div>
+
 </div>

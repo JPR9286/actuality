@@ -1,14 +1,29 @@
-<div id="message-<%= message.id %>" data-chatroom-subscription-message-id-value="<%= message.id %>"
+<div id="message<%= message.id %>" data-chatroom-subscription-message-id-value="<%= message.id %>"
   data-action="click->chatroom-subscription#comment"
   data-chatroom-subscription-target="comment">
-  <div>
-      <strong><%= message.response_author %></strong>
-      <p><%= message.response %></p>
-  </div>
-  <small>
-    <strong><%= message.user.nickname %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-  <button class="btn d-none" data-comment-message-target="button" data-action="click->chatroom-subscription#fillForm" >Répondre</button>
+
+    <div class="comment-message">
+        <strong><%= message.response_author %></strong>
+        <p><%= message.response %></p>
+
+
+        <% if message.article_id %>
+          <% article = Article.find(message.article_id)  %>
+          <%= link_to article_path(message.article_id), class: "text-decoration-none" do %>
+          <div class="img-article-chat">
+            <%=image_tag article.image_url, crop: :fill;%>
+          </div>
+          <div class="chat-title-article">
+            <%= article.title %>
+          </div>
+          <% end %>
+        <% end %>
+    </div>
+    <small>
+      <strong><%= message.user.nickname %></strong>
+    </small>
+    <p data-chatroom-subscription-target="messageContent"><%= message.content %></p>
+
+
+  <button class="btn comment-this-message" data-comment-message-target="button" data-action="click->chatroom-subscription#fillForm"><i class="fa-sharp fa-solid fa-reply fa-sm" style="color: #292424;"></i></button>
 </div>

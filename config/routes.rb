@@ -20,11 +20,13 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: [:new, :create, :index, :show, :destroy] do
     resources :messages, only: :create
+    collection do
+      patch :affiche_image
+    end
   end
-  resources :articles, only: :show
 
+  resources :articles, only: [:show, :index] 
   resources :my_chatrooms, only: [:index]
-  resources :articles, only: :show
   resources :searches, only: [:index]
-
+  get 'select_image', to: 'chatrooms#select_image'
 end

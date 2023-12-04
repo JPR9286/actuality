@@ -14,15 +14,36 @@
 }
 
 .receiver-style {
-  background-color: rgb(237, 104, 104);
-  width: 200px;
+  background-color: rgb(205, 195, 52);
+  width: 300px;
   padding: 15px;
-  color: black;
+  color: rgb(20, 18, 18);
 }
 
 .sender-style {
-  width: 200px;
+  width: 300px;
   padding: 15px;
+  padding-top: 0;
   background-color: #b9e0d4;
-  color: black;
+  color: rgb(20, 18, 18);
+}
+
+.img-article-chat {
+  position: relative;
+  padding-top: 17px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  > img {
+    width: 70%;
+  }
+}
+
+.comment-this-message {
+  position: relative;
+  margin-left: -21px;
+  margin-bottom: -16px;
+}
+
+.chat-title-article {
+  color:black;
 }

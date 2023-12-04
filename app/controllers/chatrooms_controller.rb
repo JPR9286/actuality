@@ -30,9 +30,21 @@ class ChatroomsController < ApplicationController
     redirect_to chatrooms_path, status: :see_other
   end
 
+  def affiche_image
+    # selectionner les image_url des articles de la catégorie sélectionnée
+    create
+    @images = Chatroom.where(category_id: params[:category_id]).pluck(:image_url)
+  end
+
+  def select_image
+    @images = Article.all
+    render partial: 'select_image'
+
+  end
+
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:title, :user, :category_id)
+    params.require(:chatroom).permit(:title, :user, :category_id, :image_url)
   end
 end
