@@ -3,7 +3,9 @@
   data-chatroom-subscription-target="comment">
 
     <div class="comment-message">
-        <strong><%= message.response_author %></strong>
+        <div class="author-message">
+          <strong><%= message.response_author %></strong>
+        </div>
         <p><%= message.response %></p>
 
 
@@ -20,9 +22,11 @@
         <% end %>
     </div>
     <small>
-      <strong><%= message.user.nickname %></strong>
+        <strong class="author-message"><%= message.user.nickname %>: </strong>(<%= ((Time.now - message.created_at) / 60).round %> minutes)
     </small>
-    <p data-chatroom-subscription-target="messageContent"><%= message.content %></p>
+    <div class="message-p-chat">
+      <p data-chatroom-subscription-target="messageContent"><%= message.content %></p>
+    </div>
 
 
   <button class="btn comment-this-message" data-comment-message-target="button" data-action="click->chatroom-subscription#fillForm"><i class="fa-sharp fa-solid fa-reply fa-lg" style="color: #F40C0C;"></i></button>
