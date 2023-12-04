@@ -1,0 +1,71 @@
+.chatroom {
+  height: auto;
+  padding: 10px 0px;
+  margin: 10px 0px;
+
+  .chatroom_id {
+    color: $white;
+    background-color: $dark;
+    border-radius: 20px;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    display: inline-block;
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
+
+    a{
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  .scrolling-wrapper {
+    overflow-x: auto;
+  }
+}
+
+.shared-article {
+  height: auto;
+  padding: 10px 0px;
+  margin: 10px 0px;
+  .card-article {
+    width: 100%;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(62px);
+    overflow: hidden;
+    position: relative;
+    & > a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  .title-card {
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    height: 6em;
+  }
+  .image-card {
+    img {
+      width: 150px;
+      height: 150px;
+      align-items: center;
+      justify-content: center;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+  .scrolling-wrapper {
+    overflow-x: auto;
+  }
+}
