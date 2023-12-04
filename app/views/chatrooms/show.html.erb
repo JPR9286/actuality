@@ -5,6 +5,7 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
 <div class="chat-title-exit">
+
   <div class="img-groupe-title">
 
     <% if @chatroom.photo.attached? %>
@@ -15,6 +16,8 @@
       <%= @chatroom.title %>
     </div>
   </div>
+
+
   <div class="exit-chat">
     <%= link_to chatrooms_path do %>
     <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #f40c0c;"></i>
