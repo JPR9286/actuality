@@ -5,7 +5,7 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
   static values = { chatroomId: Number }
-  static targets = ["messages", "comment", "button", "responseInput", "resonseAuthorInput", "focusInput", "messageContent"]
+  static targets = ["messages", "comment", "button", "responseInput", "resonseAuthorInput", "focusInput", "messageContent", "authorPreview", "messagePreview", "preview"]
   static values = { chatroomId: Number, currentUserId: Number }
 
   connect() {
@@ -17,8 +17,8 @@ export default class extends Controller {
     )
   }
   resetForm(event) {
-    event.target.reset()
-
+    // event.target.reset()
+    this.previewTarget.classList.add("d-none")
   }
 
 
@@ -34,11 +34,13 @@ export default class extends Controller {
   }
 
   fillForm(e) {
+    this.#togglePreview()
     this.messageContent = e.currentTarget.previousElementSibling.innerText
     this.messageAuthor = e.currentTarget.closest("div").querySelector("small").innerText
-    console.log(this.messageContent);
     this.responseInputTarget.value = this.messageContent
     this.resonseAuthorInputTarget.value = this.messageAuthor
+    this.authorPreviewTarget.innerText = this.messageAuthor
+    this.messagePreviewTarget.innerText = this.messageContent
     this.focusInputTarget.focus()
   }
 
@@ -49,6 +51,7 @@ export default class extends Controller {
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     this.responseInputTarget.value = ""
     this.resonseAuthorInputTarget.value = ""
+    this.#togglePreview()
     this.#scrollDown()
   }
 
@@ -65,6 +68,11 @@ export default class extends Controller {
       </div>
     `
   }
+
+  #togglePreview() {
+    this.previewTarget.classList.toggle("d-none")
+  }
+
 
   #justifyClass(currentUserIsSender) {
     return currentUserIsSender ? "justify-content-end" : "justify-content-start"

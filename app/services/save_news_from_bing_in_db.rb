@@ -6,7 +6,8 @@ class SaveNewsFromBingInDb
 
   def call
     puts "#{articles_to_save.size} articles to be saved in DB..."
-    articles_to_save.map do |api_article|
+    @saved_articles = articles_to_save.map do |api_article|
+
       Article.find_or_create_by(
         title: api_article['name'],
         description: api_article['description'],
@@ -14,18 +15,17 @@ class SaveNewsFromBingInDb
         article_url: api_article['url'],
         image_url: api_article['image']['contentUrl'],
         date_article: api_article['datePublished'],
-        category: category(api_article['category'])
       )
+    end.compact
+
+    @saved_articles.each do |article|
+      UpdateArticleWithDiffbotJob.perform_later(article)
     end
+
+    return @saved_articles
   end
 
   private
-
-  def category(bing_category)
-    return nil unless bing_category
-
-    Category.find_or_create_by(name: bing_category.underscore.gsub("_", " "))
-  end
 
   def articles_to_save
     articles_with_photo = @articles.select do |article|
