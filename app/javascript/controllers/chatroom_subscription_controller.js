@@ -17,7 +17,7 @@ export default class extends Controller {
     )
   }
   resetForm(event) {
-    event.target.reset()
+    // event.target.reset()
     this.previewTarget.classList.add("d-none")
   }
 
