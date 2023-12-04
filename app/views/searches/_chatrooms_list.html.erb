@@ -1,0 +1,5 @@
+<% chatrooms.each do |chatroom| %>
+  <div class="card-chatroom m-3">
+    <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none" %>
+  </div>
+<% end %>
