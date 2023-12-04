@@ -5,7 +5,19 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
 <div class="chat-title-exit">
-  <h1>#<%= @chatroom.title %></h1>
+
+  <div class="img-groupe-title">
+
+    <% if @chatroom.photo.attached? %>
+    <%= cl_image_tag @chatroom.photo.key %>
+    <%end%>
+
+    <div class="groupe-title">
+      <%= @chatroom.title %>
+    </div>
+  </div>
+
+
   <div class="exit-chat">
     <%= link_to chatrooms_path do %>
     <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #f40c0c;"></i>
@@ -22,20 +34,28 @@
       </div>
     </div>
     <% end %>
+    <div class="preview-message d-none" data-chatroom-subscription-target="preview">
+      <div class="position-relative">
+        <p data-chatroom-subscription-target="authorPreview"></p>
+        <p data-chatroom-subscription-target="messagePreview"></p>
+        <i class="fa-solid fa-xmark position-absolute top-1 end-1" data-action="click->chatroom-subscription#resetForm"></i>
+      </div>
+    </div>
   </div>
+
 
     <%= simple_form_for [@chatroom, @message],
   html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
   %>
 
-  <%= f.input :response, as: :hidden, input_html: { data: {chatroom_subscription_target: "responseInput" } }%>
-  <%= f.input :response_author, as: :hidden, input_html: { data: {chatroom_subscription_target: "resonseAuthorInput" } }%>
+      <%= f.input :response, as: :hidden, input_html: { data: {chatroom_subscription_target: "responseInput" } }%>
+      <%= f.input :response_author, as: :hidden, input_html: { data: {chatroom_subscription_target: "resonseAuthorInput" } }%>
 
-  <%= f.input :content, input_html: { data: {chatroom_subscription_target: "focusInput" } },
-    label: false,
-    placeholder: "Message",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
+      <%= f.input :content, input_html: { data: {chatroom_subscription_target: "focusInput" } },
+        label: false,
+        placeholder: "Message",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
   <div id="button-send-chat">
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   </div>

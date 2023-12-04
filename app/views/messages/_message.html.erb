@@ -22,7 +22,19 @@
         <% end %>
     </div>
     <small>
-        <strong class="author-message"><%= message.user.nickname %>: </strong>(<%= ((Time.now - message.created_at) / 60).round %> minutes)
+    <% time = ((Time.now - message.created_at) / 60).round %>
+        <strong class="author-message"><%= message.user.nickname %>: </strong>
+         <%if time < 1 %>
+          <%= "(Il y a moins d'une minute)" %>
+         <% elsif time == 1 %>
+          <%= "(Il y a #{time} minute)"%>
+         <% elsif time < 60 %>
+          <%= "(Il y a #{time} minutes)" %>
+         <% elsif time < 1440 %>
+          <%= "(Il y a #{time / 60} heures)" %>
+        <% elsif time > 1440 %>
+          <%= "(Il y a #{time /60} heures)"%>
+        <%end%>
     </small>
     <div class="message-p-chat">
       <p data-chatroom-subscription-target="messageContent"><%= message.content %></p>

@@ -25,9 +25,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :articles, only: [:show, :index]
+  resources :articles, only: [:show, :index] do
+    member do
+      post :fetch_summary
+    end
+  end
   resources :my_chatrooms, only: [:index]
   resources :searches, only: [:index]
   get 'select_image', to: 'chatrooms#select_image'
   get '/filter_chatrooms', to: "chatrooms#filter"
+
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

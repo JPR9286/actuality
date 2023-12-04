@@ -49,15 +49,31 @@
   border-style: dotted;
   background-color: $white;
   line-height: 1.9;
+
+  &:focus {
+    border-color: red;
+    box-shadow: 0 0 0.25rem rgba(255, 0, 60, 0.842);
+  }
 }
 
+.img-groupe-title {
+  display: flex;
+  justify-items: center;
+
+  img {
+    padding: 10px;
+    margin: 5px;
+    width: 150px;
+    height: 100px;
+  }
+}
+
+
 .comment-message {
-  border-top-right-radius: 0px;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 20px;
+  border-radius: 35px 0 10px 10px;
   text-align: center;
   width: 250px;
+  padding-top: 0;
   padding-left: 0px;
   background-color: rgba(55, 59, 59, 0.804);
 }
