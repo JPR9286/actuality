@@ -25,8 +25,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :articles, only: [:show, :index] 
+  resources :articles, only: [:show, :index]
   resources :my_chatrooms, only: [:index]
   resources :searches, only: [:index]
   get 'select_image', to: 'chatrooms#select_image'
+  get '/filter_chatrooms', to: "chatrooms#filter"
 end
