@@ -57,6 +57,24 @@
 
 }
 
+.img-groupe-title {
+  display: flex;
+  justify-items: center;
+
+  img {
+    padding: 10px;
+    margin: 5px;
+    width: 150px;
+    height: 100px;
+  }
+}
+
+.groupe-title {
+  margin-top: 35px;
+  text-align: center;
+  font-size: 30px;
+}
+
 .comment-message {
   border-radius: 35px 0 10px 10px;
   text-align: center;
