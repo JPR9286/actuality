@@ -39,12 +39,18 @@ class ChatroomsController < ApplicationController
   def select_image
     @images = Article.all
     render partial: 'select_image'
+  end
 
+  def filter
+    # cette methode me filtre les chatrooms maj
+    @chatrooms = Chatroom.where("title ILIKE ?", "%#{params[:query]}%")
+    # et me renvoie au format json du html des chatrooms maj
+    render json: { html: render_to_string(partial: "searches/chatrooms_list", locals: { chatrooms: @chatrooms }) }
   end
 
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:title, :user, :category_id, :image_url)
+    params.require(:chatroom).permit(:title, :user, :category_id, :image_url, :photo)
   end
 end

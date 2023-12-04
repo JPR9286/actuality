@@ -16,7 +16,7 @@ class AskOpenaiForSummary
   end
 
   def prompt
-    "résume en 50 mots le texte suivant sans cité sa source : #{@text}."
+    "résume en 50 mots le texte suivant en français sans cité sa source : #{@text}."
   end
 
 end

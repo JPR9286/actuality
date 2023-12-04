@@ -6,6 +6,7 @@
       <div style="padding: 20px;">
         <h2><%= article.title%></h2>
         <p><%= article.date_article %></p>
+        <p><%= article.category&.name %></p>
         <p><%= article.description %></p>
         <p><%= article.source %></p>
         <div class="text-center">
