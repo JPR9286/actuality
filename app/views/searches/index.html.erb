@@ -2,25 +2,25 @@
 <h1 class="text-center"> Searching Actus and Chatrooms</h1>
 
 <div class="container">
-  <div class="row justify-content-center my-3">
-      <%= form_with url: searches_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Type something.."
-          %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-  </div>
 
-  <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
-    <div class="d-flex flex-row" style="overflow-x: scroll;">
-        <% @chatrooms.each do |chatroom| %>
-          <div class="card-chatroom m-3">
-            <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none" %>
-          </div>
+  <div class="filter" data-controller="filter-chats">
+    <div class="row justify-content-center my-3">
+        <%= form_with url: searches_path, method: :get, class: "d-flex", data: {filter_chats_target:'form'} do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Type something..",
+                data: { action: 'keyup->filter-chats#update'} %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
     </div>
+
+    <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
+
+    <div class="d-flex flex-row" style="overflow-x: scroll;" data-filter-chats-target="rooms" id="TOTO">
+      <%= render "chatrooms_list", chatrooms: @chatrooms %>
+    </div>
+  </div>
 
 
   <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
@@ -62,6 +62,15 @@
           <i class="fa-solid fa-share"></i>
         </button>
 
+
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+      <% @articles.each do |article| %>
         <div class="modal fade" id="shareModal-<%=article.id%>" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -91,21 +100,16 @@
                     <%= simple_form_for("", url: "") do |f| %>
                       <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
                     <% end %>
+
                   <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
                     <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
                     <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
                     <%= f.submit "Partager l'article" %>
                   <% end %>
-                  </div>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
-
-    <% end %>
-  </div>
-
-</div>
+      <% end %>
