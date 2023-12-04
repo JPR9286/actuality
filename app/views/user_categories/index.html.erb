@@ -14,15 +14,19 @@
 <% end %>
 
 <%# affichage des discussions où j'ai posté des messages  %>
-
+<%= @user_chatrooms.count %>
 <% @user_chatrooms.each do |chatroom| %>
-  <%= link_to chatroom.title, chatroom_path(chatroom)   %>
+  <%= link_to chatroom.title, chatroom_path(chatroom)  %>
+
 <% end %>
 
 <%# affichage des articles où j'ai posté des messages  %>
 
+<%= @shared_articles.count %>
 <% @shared_articles.each do |article| %>
-  <%= link_to article_path(message.article_id), class: "text-decoration-none" do %>
+  <h2>  article </h2>
+  <%= article.id %>
+  <%= link_to article_path(article), class: "text-decoration-none" do %>
     <div class="img-article-chat">
       <%=image_tag article.image_url, crop: :fill;%>
     </div>
