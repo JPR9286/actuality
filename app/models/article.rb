@@ -13,17 +13,18 @@ class Article < ApplicationRecord
 
   validates :title, uniqueness: { scope: :date_article }
 
-  def summary
-    set_summary if super.nil?
+  # def summary
+  #   set_summary if super.nil?
 
-    super
-  end
+  #   super
+  # end
 
   def set_summary
-    text = ExtractTextFromUrl.new(article_url).call
-    return unless text.present?
-    openai_summary = AskOpenaiForSummary.new(text).call
-    self.update(summary: openai_summary)
+    # text = ExtractTextFromUrl.new(article_url).call['text']
+    return unless content.present?
+
+    openai_summary = AskOpenaiForSummary.new(content).call
+    update(summary: openai_summary)
   end
 
 end

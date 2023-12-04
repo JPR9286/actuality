@@ -6,19 +6,59 @@ class ExtractTextFromUrl
 
   def call
     puts "Appel à l'API..."
-    response = RestClient.get url, headers.merge({ params: params })
+    # response = RestClient.get url, headers.merge({ params: params })
+
+    response = RestClient::Request.execute(
+      method: :get,
+      url: url,
+      timeout: 3,
+      headers: headers.merge({ params: params })
+    )
+
     parsed_response = JSON.parse(response.body)
     unless parsed_response.key?("objects")
       puts "API did not extract text"
       return nil
     end
 
-    p JSON.parse(response.body)["objects"][0]["text"]
+    @article_data = JSON.parse(response.body)["objects"].first
+
+    # categories_in_english = JSON.parse(response.body)["objects"][0]["text"]["categories"]
+    # categories_in_french = categories_in_english.map do |category|
+    #   category_translation[category]
+    # end
+
+    # categories_in_french.each do |name|
+    #   Category.create!(name: name)
+    # end
+
+    # p JSON.parse(response.body)["objects"][0]["text"]["categories"]
+    {
+      category: article_category,
+      text: article_text
+    }
+  rescue RestClient::Exceptions::Timeout => e
+    puts "API timed out (more than 3s to answer)"
+    return nil
+  end
+
+  private
+
+  def article_category
+    categories = @article_data['categories']&.sort_by { |cat| cat["score"] }
+    categories&.map do |cat|
+      Category.find_by(name_en: cat['name'])
+    end&.compact&.first
+  end
+
+  def article_text
+    @article_data['text']
   end
 
   def headers
     {}
   end
+
 
   def params
     {
