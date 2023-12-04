@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :my_chatrooms, only: [:index]
   resources :searches, only: [:index]
   get 'select_image', to: 'chatrooms#select_image'
+  get '/filter_chatrooms', to: "chatrooms#filter"
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do

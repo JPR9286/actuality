@@ -6,26 +6,34 @@
 .sender-style,
 .receiver-style {
   width: 70%;
+  text-align: center;
   max-width: 400px;
-  border-radius: 4px;
-  padding: 8px;
   min-height: 30px;
   border-radius: 15px;
 }
 
 .receiver-style {
-  background-color: rgb(205, 195, 52);
-  width: 300px;
-  padding: 15px;
-  color: rgb(20, 18, 18);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color:rgba(55, 59, 59, 0.804);
+  width: 250px;
+  min-height: 80px;
+  padding: 10px;
+  color: rgb(234, 229, 229);
 }
 
 .sender-style {
-  width: 300px;
-  padding: 15px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 20px;
+  width: 250px;
+  min-height: 80px;
   padding-top: 0;
-  background-color: #b9e0d4;
-  color: rgb(20, 18, 18);
+  background-color: #20A090;;
+  color: rgb(234, 229, 229);
 }
 
 .img-article-chat {
@@ -40,10 +48,22 @@
 
 .comment-this-message {
   position: relative;
-  margin-left: -21px;
-  margin-bottom: -16px;
+  margin-left: 200px;
+  margin-bottom: -10px;
+
+
 }
 
 .chat-title-article {
   color:black;
+}
+
+.author-message {
+  font-size: 20px;
+  color: antiquewhite;
+}
+
+.message-p-chat {
+  margin-top: 10px;
+
 }

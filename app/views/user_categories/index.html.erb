@@ -1,12 +1,52 @@
-<h1>My categories</h1>
+<h1>Mes catégories</h1>
 
-<%= simple_form_for(current_user,
-                  url:reset_user_categories_path,
-                  method: :post) do |f| %>
-  <%= f.association :categories,
-                    as: :check_boxes,
-                    include_blank: false, include_hidden: false,
-                    input_html: { class: "tag-selector" },
-                    item_wrapper_class: 'tag-item' %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%# Mon Dashboard %>
+  <div class="categories">
+    <%= simple_form_for(current_user,
+                      url:reset_user_categories_path,
+                      method: :post) do |f| %>
+      <%= f.association :categories,
+                        as: :check_boxes,
+                        include_blank: false, include_hidden: false,
+                        input_html: { class: "tag-selector" },
+                        item_wrapper_class: 'tag-item' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <%# affichage des discussions où j'ai posté des messages  %>
+  <div class="chatroom">
+    <h3 class="" >Mes Chatrooms  - <%= @user_chatrooms.count %></h3>
+    <div class="scrolling-wrapper flex-row flex-nowrap">
+      <div class="col">
+        <% @user_chatrooms.each do |chatroom| %>
+          <div class="chatroom_id">
+            <%= link_to chatroom.title, chatroom_path(chatroom)  %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%# affichage des articles où j'ai posté des messages  %>
+  <div class="shared-article">
+    <h3> Mes articles partagés - <%= @shared_articles.count %></h3>
+    <div class="row scrolling-wrapper flex-row flex-nowrap" >
+      <% @shared_articles.each do |article| %>
+        <div class="col-5 col-lg-3">
+          <div class="card-article">
+            <%= link_to article_path(article), class: "text-decoration-none" do %>
+              <div class="title-card">
+                <%= article.title%>
+              </div>
+              <div class="image-card">
+                <%=image_tag article.image_url, crop: :fill;%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

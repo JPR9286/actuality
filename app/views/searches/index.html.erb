@@ -2,56 +2,75 @@
 <h1 class="text-center"> Searching Actus and Chatrooms</h1>
 
 <div class="container">
-  <div class="row justify-content-center my-3">
-      <%= form_with url: searches_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Type something.."
-          %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-  </div>
 
-  <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
-    <div class="d-flex flex-row" style="overflow-x: scroll;">
-        <% @chatrooms.each do |chatroom| %>
-          <div class="card-chatroom m-3">
-            <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none" %>
-          </div>
+  <div class="filter" data-controller="filter-chats">
+    <div class="row justify-content-center my-3">
+        <%= form_with url: searches_path, method: :get, class: "d-flex", data: {filter_chats_target:'form'} do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Type something..",
+                data: { action: 'keyup->filter-chats#update'} %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
     </div>
+
+    <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
+
+    <div class="d-flex flex-row" style="overflow-x: scroll;" data-filter-chats-target="rooms" id="TOTO">
+      <%= render "chatrooms_list", chatrooms: @chatrooms %>
+    </div>
+  </div>
 
 
   <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
 
   <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
-    <div class="d-flex flex-column">
-      <% @articles.each do |article| %>
+
+  <div class="d-flex flex-column">
+    <% @articles.each do |article| %>
       <%# <span class="border border-dark"></span> %>
-      <%= link_to article_path(article) do  %>
-        <div class="card-article mb-5">
+
+      <div class="card-article mb-5">
+
+        <%= link_to article_path(article) do  %>
+
           <div class="image-card">
             <% if article.image_url %>
-            <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
-            <%# else image par defaut %>
+              <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
+              <%# else image par defaut %>
             <% end %>
           </div>
-          <div class="title-card mt-2">
-            <%# <li>= article.title</li> %>
-            <p><%= article.title %></p>
+
+          <div class="p-3">
+            <div class="title-card mt-2">
+              <%# <li>= article.title</li> %>
+              <p><%= article.title %></p>
+            </div>
+
+            <div class="description-card">
+              <% if article.description %>
+              <%# a enlever apres si articles a une description %>
+                <p><%= article.description.truncate(100) %></p>
+              <% end %>
+            </div>
           </div>
-          <div class="description-card">
-            <% if article.description %>
-            <%# a enlever apres si articles a une description %>
-              <p><%= article.description.truncate(100) %></p>
-            <% end %>
-          <% end %>
+
+        <% end %>
 
         <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
           <i class="fa-solid fa-share"></i>
         </button>
 
+
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+      <% @articles.each do |article| %>
         <div class="modal fade" id="shareModal-<%=article.id%>" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -76,27 +95,21 @@
                       <%# end %>
                   </div>
 
-                <div data-controller="share-article">
-                  <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
-                  <%= simple_form_for("", url: "") do |f| %>
-                    <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
-                  <% end %>
+                  <div data-controller="share-article">
+                    <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
+                    <%= simple_form_for("", url: "") do |f| %>
+                      <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
+                    <% end %>
 
-                  <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                    <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
-                    <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
-                    <%= f.submit %>
+                    <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
+                      <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
+                      <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
+                    <%= f.submit "Partager l'article" %>
                   <% end %>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-        </div>
       <% end %>
-    </div>
-  </div>
-</div>
