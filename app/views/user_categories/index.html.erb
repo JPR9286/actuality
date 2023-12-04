@@ -1,5 +1,7 @@
 <h1>My categories</h1>
 
+<%# Affichage des catégories %>
+
 <%= simple_form_for(current_user,
                   url:reset_user_categories_path,
                   method: :post) do |f| %>
@@ -9,4 +11,20 @@
                     input_html: { class: "tag-selector" },
                     item_wrapper_class: 'tag-item' %>
   <%= f.submit %>
+<% end %>
+
+<%# affichage des discussions où j'ai posté des messages  %>
+
+<% @user_chatrooms.each do |chatroom| %>
+  <%= link_to chatroom.title, chatroom_path(chatroom)   %>
+<% end %>
+
+<%# affichage des articles où j'ai posté des messages  %>
+
+<% @shared_articles.each do |article| %>
+  <%= link_to article_path(message.article_id), class: "text-decoration-none" do %>
+    <div class="img-article-chat">
+      <%=image_tag article.image_url, crop: :fill;%>
+    </div>
+  <% end %>
 <% end %>

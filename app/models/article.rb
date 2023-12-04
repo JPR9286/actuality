@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   belongs_to :category, optional: true
+  has_many :messages
   validates :title, :article_url, presence: true
 
   include PgSearch::Model
