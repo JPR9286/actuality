@@ -1,5 +1,10 @@
 <% chatrooms.each do |chatroom| %>
   <div class="card-chatroom m-3">
+    <%= link_to chatroom_path(chatroom), style: "text-decoration: none" do %>
+      <%# if !chatroom.image_url.nil? %>
+        <%#= image_tag chatroom.image_url, alt: "Chatroom Image" %>
+      <%# end %>
+    <% end %>
     <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none" %>
   </div>
 <% end %>

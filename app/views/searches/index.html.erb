@@ -5,7 +5,7 @@
 
   <div class="filter" data-controller="filter-chats">
     <div class="row justify-content-center my-3">
-        <%= form_with url: searches_path, method: :get, class: "d-flex", data: {filter_chats_target:'form'} do %>
+        <%= form_with url: searches_path, method: :get, class: "d-flex search-bar", data: {filter_chats_target:'form'} do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
@@ -16,16 +16,16 @@
     </div>
 
     <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
-
-    <div class="d-flex flex-row" style="overflow-x: scroll;" data-filter-chats-target="rooms" id="TOTO">
+    <div class="d-flex flex-row" style="overflow-x: scroll;" data-filter-chats-target="rooms">
       <%= render "chatrooms_list", chatrooms: @chatrooms %>
     </div>
+
   </div>
 
 
   <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
 
-  <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
+  <h2> <i class="fa-solid fa-fire fa-sm"></i>  <i class="fa-regular fa-newspaper"></i> Articles</h2>
 
   <div class="d-flex flex-column">
     <% @articles.each do |article| %>
