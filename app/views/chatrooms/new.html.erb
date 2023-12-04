@@ -5,6 +5,6 @@
 <%= simple_form_for @chatroom, data: { controller: "chatrooms-select-image" } do |f| %>
   <%= f.input :title %>
   <%= f.association :category %>
-  <%= f.input :image_url, as: :file %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
