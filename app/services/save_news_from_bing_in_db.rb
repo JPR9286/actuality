@@ -16,6 +16,7 @@ class SaveNewsFromBingInDb
         article_url: api_article['url'],
         image_url: api_article['image']['contentUrl'],
         date_article: api_article['datePublished'],
+        api_data: api_article
       )
 
       article
