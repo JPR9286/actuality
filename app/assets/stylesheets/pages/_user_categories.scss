@@ -7,7 +7,6 @@
     color: $white;
     background-color: $dark;
     border-radius: 20px;
-
     width: 100%;
     text-align: center;
     padding-left: 15px;
@@ -29,9 +28,6 @@
     overflow-x: auto;
   }
 }
-
-
-
 
 .chatroom {
   height: auto;
@@ -67,8 +63,8 @@
 
 .shared-article {
   height: auto;
-  padding: 10px 0px;
-  margin: 10px 0px;
+  // padding: 10px 0px;
+  // margin: 10px 0px;
   .card-article {
     width: 100%;
     border-radius: 10px;
@@ -81,7 +77,16 @@
       color: white;
     }
   }
-
+  .image-card {
+      img{
+        width: 150px;
+        height: 150px;
+        align-items: center;
+        justify-content: center;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
   .title-card {
     font-size: 14px;
     padding: 5px;
@@ -89,16 +94,7 @@
     align-items: center;
     height: 6em;
   }
-  .image-card {
-    img{
-      width: 150px;
-      height: 150px;
-      align-items: center;
-      justify-content: center;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
+
   .scrolling-wrapper{
     overflow-x: auto;
   }

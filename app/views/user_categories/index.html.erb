@@ -1,9 +1,9 @@
 <h1>Mes catégories</h1>
 
-<div class="container">
   <%# Mon Dashboard %>
   <div class="categories">
     <div class="titre d-flex justify-content-between">
+      <% colors = ["red","green","blue"] %>
       <h3 class="" >Mes Catégories  - <%= @user_categories.count %></h3>
       <button onclick="document.querySelector('.all_categories').classList.toggle('d-none')">Afficher toutes les catégories</button>
     </div>
@@ -27,7 +27,7 @@
        <%= f.association :categories,
                         as: :check_boxes,
                         include_blank: false, include_hidden: false,
-                        input_html: { class: "tag-selector" },
+                        input_html: { class: 'tag-selector' },
                         item_wrapper_class: 'tag-item' %>
 
     <% end %>
@@ -55,11 +55,11 @@
         <div class="col-4 col-lg-3">
           <div class="card-article">
             <%= link_to article_path(article), class: "text-decoration-none" do %>
-              <div class="title-card">
-                <%= article.title%>
-              </div>
               <div class="image-card">
                 <%=image_tag article.image_url, crop: :fill;%>
+              </div>
+              <div class="title-card">
+                <%= truncate(article.title, length: 40 ) %>
               </div>
             <% end %>
           </div>
@@ -67,4 +67,3 @@
       <% end %>
     </div>
   </div>
-</div>

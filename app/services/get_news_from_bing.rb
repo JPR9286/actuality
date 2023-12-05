@@ -11,12 +11,12 @@ class GetNewsFromBing
   def call
     @articles << api_call
     @articles.flatten!
-    puts "#{@articles.size} récupérés"
-    while @responses.size < 3 && @articles.size < 30
-      @articles << api_call(@articles.size).flatten
-        @articles.flatten!
-      puts "#{@articles.size} récupérés"
-    end
+    # puts "#{@articles.size} récupérés"
+    # while @responses.size < 3 && @articles.size < 30
+    #   @articles << api_call(@articles.size).flatten
+    #     @articles.flatten!
+    #   puts "#{@articles.size} récupérés"
+    # end
 
     puts "#{@articles.size} articles fetched!"
     return @articles
