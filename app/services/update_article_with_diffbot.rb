@@ -16,3 +16,7 @@ class UpdateArticleWithDiffbot
     )
   end
 end
+if @article_data["summary"].present?
+  category_in_french = category_translation[@article_data["categories"].first]
+  Article.create!(title: @article_data["title"], content: @article_data["text"], category_in_french: category_in_french)
+end

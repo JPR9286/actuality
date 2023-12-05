@@ -8,14 +8,17 @@ class SaveNewsFromBingInDb
     puts "#{articles_to_save.size} articles to be saved in DB..."
     @saved_articles = articles_to_save.map do |api_article|
 
-      Article.find_or_create_by(
-        title: api_article['name'],
+      article = Article.find_or_create_by(title: api_article['name'])
+
+      article.update(
         description: api_article['description'],
         source: api_article["provider"].first["name"],
         article_url: api_article['url'],
         image_url: api_article['image']['contentUrl'],
         date_article: api_article['datePublished'],
       )
+
+      article
     end.compact
 
     @saved_articles.each do |article|

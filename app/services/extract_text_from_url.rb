@@ -21,7 +21,15 @@ class ExtractTextFromUrl
       return nil
     end
 
-    @article_data = JSON.parse(response.body)["objects"].first
+    @article_data = parsed_response["objects"].first || {}
+
+    # if @article_data["text"].present?
+    #   category_in_french = category_translation[@article_data["categories"].first]
+    #   Article.create!(title: @article_data["title"], content: @article_data["text"], category_in_french: category_in_french)
+    # end
+
+
+
 
     # categories_in_english = JSON.parse(response.body)["objects"][0]["text"]["categories"]
     # categories_in_french = categories_in_english.map do |category|
