@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   devise_for :users
   root to: "pages#home"
   get 'articles/:id/summary', to: 'articles#summary', as: 'article_summary'
@@ -35,8 +40,4 @@ Rails.application.routes.draw do
   get 'select_image', to: 'chatrooms#select_image'
   get '/filter_chatrooms', to: "chatrooms#filter"
 
-  require "sidekiq/web"
-  authenticate :user, ->(user) { user.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
 end

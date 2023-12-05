@@ -14,6 +14,7 @@ User.destroy_all
 Article.destroy_all
 
 # Création des utilisateurs
+admin_user = User.create(email: "admin@actuality.com", password: "123456", nickname: "Admin", admin: true)
 user1 = User.create!(email: "adel@mail.com", password: "123456", nickname: "Adel")
 user2 = User.create!(email: "jeremy@mail.com", password: "123456", nickname: "Jeremy")
 user3 = User.create!(email: "jerome@mail.com", password: "123456", nickname: "Jerome")
