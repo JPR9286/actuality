@@ -3,29 +3,47 @@
 <div class="container">
   <%# Mon Dashboard %>
   <div class="categories">
+    <div class="titre d-flex justify-content-between">
+      <h3 class="" >Mes Catégories  - <%= @user_categories.count %></h3>
+      <button onclick="document.querySelector('.all_categories').classList.toggle('d-none')">Afficher toutes les catégories</button>
+    </div>
+    <div class="row scrolling-wrapper flex-row flex-nowrap">
+        <% @user_categories.each do |category| %>
+          <div class="col-4 col-lg-3">
+            <div class="category_id" >
+              <%= category.name %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+
+  <div class="all_categories d-none">
     <%= simple_form_for(current_user,
                       url:reset_user_categories_path,
                       method: :post) do |f| %>
-      <%= f.association :categories,
+       <%= f.submit %>
+       <%= f.association :categories,
                         as: :check_boxes,
                         include_blank: false, include_hidden: false,
                         input_html: { class: "tag-selector" },
                         item_wrapper_class: 'tag-item' %>
-      <%= f.submit %>
+
     <% end %>
   </div>
 
   <%# affichage des discussions où j'ai posté des messages  %>
   <div class="chatroom">
     <h3 class="" >Mes Chatrooms  - <%= @user_chatrooms.count %></h3>
-    <div class="scrolling-wrapper flex-row flex-nowrap">
-      <div class="col">
+    <div class="row scrolling-wrapper flex-row flex-nowrap">
         <% @user_chatrooms.each do |chatroom| %>
-          <div class="chatroom_id">
-            <%= link_to chatroom.title, chatroom_path(chatroom)  %>
+          <div class="col-4 col-lg-3">
+            <div class="chatroom_id">
+              <%= link_to chatroom.title, chatroom_path(chatroom)  %>
+            </div>
           </div>
         <% end %>
-      </div>
     </div>
   </div>
 
@@ -34,7 +52,7 @@
     <h3> Mes articles partagés - <%= @shared_articles.count %></h3>
     <div class="row scrolling-wrapper flex-row flex-nowrap" >
       <% @shared_articles.each do |article| %>
-        <div class="col-5 col-lg-3">
+        <div class="col-4 col-lg-3">
           <div class="card-article">
             <%= link_to article_path(article), class: "text-decoration-none" do %>
               <div class="title-card">
