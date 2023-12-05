@@ -12,8 +12,8 @@ class MessagesController < ApplicationController
           message: render_to_string(partial: "message", locals: {message: @message}),
           sender_id: @message.user.id
         })
-      head :ok
-    else
+        redirect_to chatroom_path(@chatroom)
+      else
       render "chatrooms/show", status: :unprocessable_entity
     end
   end
@@ -26,6 +26,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content, :response, :response_author)
+    params.require(:message).permit(:content, :response, :response_author, :article_id)
   end
 end
