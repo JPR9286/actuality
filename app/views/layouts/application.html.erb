@@ -16,6 +16,9 @@
   </head>
 
   <body>
+
+    <%= render "shared/navbar" %>
+    <div class="container <%  "min-h-100" unless action_name == "show" && controller_name == "chatrooms" %> mb-5">
     <div id="background">
     </div>
     <div class="container <%  "min-h-100" unless action_name == "show" && controller_name == "chatrooms" %> mb-5">
@@ -25,8 +28,8 @@
       </div>
       <%= render "shared/footer" %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+
 
   </body>
 </html>

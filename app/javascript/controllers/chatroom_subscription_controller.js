@@ -16,9 +16,9 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data)}
     )
   }
-  resetForm(event) {
-    event.target.reset()
-    this.previewTarget.classList.add("d-none")
+  resetForm() {
+    this.focusInputTarget.value = "";
+    this.previewTarget.classList.add("d-none");
   }
 
 
@@ -40,7 +40,7 @@ export default class extends Controller {
     this.responseInputTarget.value = this.messageContent
     this.resonseAuthorInputTarget.value = this.messageAuthor
     this.authorPreviewTarget.innerText = this.messageAuthor
-    this.messagePreviewTarget.innerText = this.messageContent
+    this.messagePreviewTarget.innerText = `${this.messageContent.slice(0, 35)}...`
     this.focusInputTarget.focus()
   }
 
