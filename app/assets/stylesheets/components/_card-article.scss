@@ -5,6 +5,7 @@
   backdrop-filter: blur(62px);
   overflow: hidden;
   position: relative;
+<<<<<<< HEAD
   font-family: Poppins;
   a {
     text-decoration: none;
@@ -36,6 +37,11 @@
     font-size: 14px;
     font-weight: 500;
     text-align: right;
+=======
+  & > a {
+    text-decoration: none;
+    color: white;
+>>>>>>> bcd8f909dfe7950c9e0f3543d81903de8c9c8d0c
   }
 }
 
@@ -72,6 +78,7 @@
   justify-content: center;
   width: 30px;
   height: 30px;
+<<<<<<< HEAD
   // background-color: $red;
   position: absolute;
   top: 10px;
@@ -91,4 +98,10 @@
   border: 2px solid #4816D6;
   background: #F1F3F3;
   box-shadow: 0px 2px 9px 0px #4816D6 inset;
+=======
+  background-color: #F40C0C;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+>>>>>>> bcd8f909dfe7950c9e0f3543d81903de8c9c8d0c
 }
