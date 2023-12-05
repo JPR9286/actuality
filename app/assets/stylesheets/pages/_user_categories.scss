@@ -1,3 +1,33 @@
+.categories {
+  height: auto;
+  padding: 10px 0px;
+  margin: 10px 0px;
+
+  .category_id {
+    color: $white;
+    background-color: $dark;
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    display: inline-block;
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
+    a{
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  .scrolling-wrapper{
+    overflow-x: auto;
+  }
+}
 
 .chatroom {
 
@@ -31,8 +61,10 @@
 
 .shared-article {
   height: auto;
+
   padding: 10px 0px;
   margin: 10px 0px;
+
 
   .card-article {
     width: 100%;
@@ -47,7 +79,16 @@
       color: white;
     }
   }
-
+  .image-card {
+      img{
+        width: 150px;
+        height: 150px;
+        align-items: center;
+        justify-content: center;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
   .title-card {
     font-size: 14px;
     padding: 5px;
@@ -55,6 +96,7 @@
     align-items: center;
     height: 6em;
   }
+
 
   .image-card {
     img{
@@ -66,6 +108,7 @@
       object-position: center;
     }
   }
+
   .scrolling-wrapper{
     overflow-x: auto;
   }
