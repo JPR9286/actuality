@@ -4,10 +4,11 @@
 
     <div class="comment-message">
         <div class="author-message">
-          <strong><%= message.response_author %></strong>
+          <div class="author-message-p">
+            <strong><%= message.response_author %></strong>
+            <p><%= message.response %></p>
+          </div>
         </div>
-        <p><%= message.response %></p>
-
 
         <% if message.article_id %>
           <% article = Article.find(message.article_id)  %>

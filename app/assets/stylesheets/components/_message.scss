@@ -48,13 +48,11 @@
   color: black;
 }
 
-.author-message {
-  padding-top: 1px;
-  font-size: 20px;
-  color: antiquewhite;
-}
+
+
 
 .message-p-chat {
+  word-wrap: break-word;
   margin-top: 10px;
 }
 
@@ -65,7 +63,7 @@
   position: absolute;
   margin-left: 20px;
   width: 86%;
-  bottom: 143px;
+  bottom: 148px;
   z-index: 10;
   background-color: rgb(90, 98, 98);
 
@@ -73,5 +71,10 @@
     padding-top: 10px;
     color: rgb(215, 210, 210);
     margin: 0 0 0 10px;
+  }
+
+  i {
+    margin-left: 303px;
+    margin-top: -53px;
   }
 }
