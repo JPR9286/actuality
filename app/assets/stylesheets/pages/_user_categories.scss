@@ -1,3 +1,4 @@
+
 .chatroom {
 
   padding: 10px 0px;
@@ -20,14 +21,12 @@
       color: $black;
       background-color: $white;
     }
-
-    a {
+    a{
       color: $white;
       text-decoration: none;
     }
   }
-
-  .scrolling-wrapper {
+  .scrolling-wrapper{
     overflow-x: auto;
   }
 }
@@ -60,7 +59,7 @@
   }
 
   .image-card {
-    img {
+    img{
       width: 150px;
       height: 150px;
       align-items: center;
@@ -69,8 +68,7 @@
       object-position: center;
     }
   }
-
-  .scrolling-wrapper {
+  .scrolling-wrapper{
     overflow-x: auto;
   }
 }

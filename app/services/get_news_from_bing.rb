@@ -59,5 +59,4 @@ class GetNewsFromBing
   end
 end
 
-
 # GetNewsFromKeyword.new('kilian').call

@@ -5,27 +5,29 @@
 
   <div class="filter" data-controller="filter-chats">
     <div class="row justify-content-center my-3">
-        <%= form_with url: searches_path, method: :get, class: "d-flex", data: {filter_chats_target:'form'} do %>
+        <%= form_with url: searches_path, method: :get, class: "d-flex search-bar", data: {filter_chats_target:'form'} do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
                 placeholder: "Type something..",
                 data: { action: 'keyup->filter-chats#update'} %>
           <%= submit_tag "Search", class: "btn btn-primary" %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+
         <% end %>
     </div>
 
     <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
-
-    <div class="d-flex flex-row" style="overflow-x: scroll;" data-filter-chats-target="rooms" id="TOTO">
+    <div class="d-flex flex-row" style="overflow-x: scroll;" data-filter-chats-target="rooms">
       <%= render "chatrooms_list", chatrooms: @chatrooms %>
     </div>
+
   </div>
 
 
   <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
 
-  <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
+  <h2> <i class="fa-solid fa-fire fa-sm"></i>  <i class="fa-regular fa-newspaper"></i> Articles</h2>
 
   <div class="d-flex flex-column">
     <% @articles.each do |article| %>
@@ -50,7 +52,7 @@
 
             <div class="description-card">
               <% if article.description %>
-              <%# a enlever apres si articles a une description %>
+              <%# a enlever apres si article a une description %>
                 <p><%= article.description.truncate(100) %></p>
               <% end %>
             </div>
@@ -101,12 +103,12 @@
                       <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
                     <% end %>
 
-                    <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                      <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
-                      <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
+                  <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
+                    <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
+                    <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
                     <%= f.submit "Partager l'article" %>
                   <% end %>
-                  </div>
+
                 </div>
               </div>
             </div>
