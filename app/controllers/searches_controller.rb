@@ -12,6 +12,7 @@ class SearchesController < ApplicationController
       # @articles = Article.order(created_at: :desc)
       @chatrooms = Chatroom.all
     end
+    @articles = @articles || Article.where.not(content: nil).order(created_at: :desc)
   end
 
 end

@@ -1,4 +1,20 @@
-// .search-bar {
-//   position: sticky;
-//   background-color: red;
+.search-bar {
+  position: sticky;
+  top: 20px;
+  z-index: 500;
+  // background-color: red;
+}
+
+.bg-color-searchbar {
+  background-color: transparent !important;
+  color: white !important;
+  border: none;
+}
+
+.bg-color-searchbar::placeholder {
+  color: white;
+}
+
+// .custom-input {
+//   background-color: white;
 // }
