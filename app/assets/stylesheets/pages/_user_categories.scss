@@ -1,3 +1,33 @@
+.categories {
+  height: auto;
+  padding: 10px 0px;
+  margin: 10px 0px;
+
+  .category_id {
+    color: $white;
+    background-color: $dark;
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    display: inline-block;
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
+    a{
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  .scrolling-wrapper{
+    overflow-x: auto;
+  }
+}
 
 .chatroom {
 
@@ -31,9 +61,14 @@
 
 .shared-article {
   height: auto;
+<<<<<<< HEAD
   padding: 10px 0px;
   margin: 10px 0px;
 
+=======
+  // padding: 10px 0px;
+  // margin: 10px 0px;
+>>>>>>> df32db3ba2267102ae8bf0e49e303cfd205e5d63
   .card-article {
     width: 100%;
     border-radius: 10px;
@@ -47,7 +82,16 @@
       color: white;
     }
   }
-
+  .image-card {
+      img{
+        width: 150px;
+        height: 150px;
+        align-items: center;
+        justify-content: center;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
   .title-card {
     font-size: 14px;
     padding: 5px;
@@ -56,6 +100,7 @@
     height: 6em;
   }
 
+<<<<<<< HEAD
   .image-card {
     img{
       width: 150px;
@@ -66,6 +111,8 @@
       object-position: center;
     }
   }
+=======
+>>>>>>> df32db3ba2267102ae8bf0e49e303cfd205e5d63
   .scrolling-wrapper{
     overflow-x: auto;
   }

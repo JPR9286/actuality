@@ -5,15 +5,18 @@
   backdrop-filter: blur(62px);
   overflow: hidden;
   position: relative;
-  & > a {
+  font-size: 18px;
+  font-family: Poppins;
+  a {
     text-decoration: none;
     color: white;
   }
 }
 
 .title-card {
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
+
   p{
     margin-bottom: 8px;
   }
