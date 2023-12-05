@@ -1,3 +1,37 @@
+.categories {
+  height: auto;
+  padding: 10px 0px;
+  margin: 10px 0px;
+
+  .category_id {
+    color: $white;
+    background-color: $dark;
+    border-radius: 20px;
+
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    display: inline-block;
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
+    a{
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  .scrolling-wrapper{
+    overflow-x: auto;
+  }
+}
+
+
+
 
 .chatroom {
   height: auto;
