@@ -1,17 +1,36 @@
-.card-chatroom {
+.wrapper-category-chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.card-chatroom {
   display: flex;
   justify-items: center;
   text-align: center;
-  img {
-    padding: 10px;
-    margin: 5px;
-    width: 60px;
-    height: 60px;
-  }
+  margin :3px;
+  background-color: #174F44;
+  border-radius: 10px;
+  width: 52px;
+  height: 52px;
 }
 
-// .img-chat {
-//   background-color: red;
-  // margin: 10px;
-// }
+
+.link-category-chat {
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+
+}
+
+.image-chat {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  // object-fit: contain;
+}
+

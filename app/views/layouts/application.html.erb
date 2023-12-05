@@ -16,15 +16,19 @@
   </head>
 
   <body>
+
     <%= render "shared/navbar" %>
     <div class="container <%  "min-h-100" unless action_name == "show" && controller_name == "chatrooms" %> mb-5">
-      <%= render "shared/flashes" %>
-      <%= yield %>
-      <%= render "shared/footer" %>
-
+    <div id="background">
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <%= render "shared/flashes" %>
+      <div class="wrapper">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+    </div>
+
+  
 
   </body>
 </html>

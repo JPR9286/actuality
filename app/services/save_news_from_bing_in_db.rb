@@ -5,6 +5,8 @@ class SaveNewsFromBingInDb
   end
 
   def call
+    return unless @articles.present?
+
     puts "#{articles_to_save.size} articles to be saved in DB..."
     @saved_articles = articles_to_save.map do |api_article|
 
