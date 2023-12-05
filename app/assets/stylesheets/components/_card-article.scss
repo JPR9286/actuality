@@ -5,17 +5,43 @@
   backdrop-filter: blur(62px);
   overflow: hidden;
   position: relative;
-  font-size: 18px;
   font-family: Poppins;
   a {
     text-decoration: none;
     color: white;
+    font-size: 14px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .category {
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+    top: 230px;
+    left: 10px;
+  }
+  .date {
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .source {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+  }
+  .lire {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
   }
 }
 
 .title-card {
   font-size: 18px;
-  text-align: center;
+  text-align: left;
 
   p{
     margin-bottom: 8px;
