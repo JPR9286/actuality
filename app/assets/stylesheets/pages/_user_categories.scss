@@ -30,8 +30,6 @@
 }
 
 .chatroom {
-
-
   .chatroom_id {
     color: $white;
     background-color: $dark;
@@ -61,8 +59,11 @@
 
 .shared-article {
   height: auto;
-  // padding: 10px 0px;
-  // margin: 10px 0px;
+
+  padding: 10px 0px;
+  margin: 10px 0px;
+
+
   .card-article {
     width: 100%;
     border-radius: 10px;
@@ -92,6 +93,18 @@
     text-align: center;
     align-items: center;
     height: 6em;
+  }
+
+
+  .image-card {
+    img{
+      width: 150px;
+      height: 150px;
+      align-items: center;
+      justify-content: center;
+      object-fit: contain;
+      object-position: center;
+    }
   }
 
   .scrolling-wrapper{

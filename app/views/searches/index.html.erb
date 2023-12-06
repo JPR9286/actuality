@@ -1,5 +1,5 @@
-<%# <h1 class="text-center"> Searching Actus and Chatrooms</h1> %>
 
+<h1>Recherche</h1>
 <div class="container" data-controller="filter-chats">
 
     <div class="row justify-content-center my-3 search-bar">
@@ -23,7 +23,7 @@
     </div>
   <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
 
-  <h2> <i class="fa-solid fa-fire fa-sm"></i>  <i class="fa-regular fa-newspaper"></i> Articles</h2>
+  <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
 
   <div class="d-flex flex-column">
     <% @articles.each do |article| %>
@@ -35,8 +35,8 @@
 
           <div class="image-card">
             <% if article.image_url %>
-              <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
-              <%# else image par defaut %>
+            <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
+            <%# else image par defaut %>
             <% end %>
           </div>
 
@@ -48,7 +48,7 @@
 
             <div class="description-card">
               <% if article.description %>
-              <%# a enlever apres si article a une description %>
+              <%# a enlever apres si articles a une description %>
                 <p><%= article.description.truncate(100) %></p>
               <% end %>
             </div>
@@ -59,6 +59,7 @@
         <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
           <i class="fa-solid fa-share"></i>
         </button>
+
 
 
       </div>
@@ -93,11 +94,11 @@
                       <%# end %>
                   </div>
 
-                  <div data-controller="share-article">
-                    <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
-                    <%= simple_form_for("", url: "") do |f| %>
-                      <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
-                    <% end %>
+                <div data-controller="share-article">
+                  <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
+                  <%= simple_form_for("", url: "") do |f| %>
+                    <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
+                  <% end %>
 
                     <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
                       <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
@@ -106,8 +107,15 @@
                   <% end %>
 
                 </div>
+
               </div>
             </div>
           </div>
         </div>
-      <% end %>
+
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
