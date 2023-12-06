@@ -1,7 +1,5 @@
 .message-row {
-  position: relative;
-  margin-bottom: 10px;
-  padding: 8px;
+  padding: 5px;
 }
 
 
@@ -16,17 +14,15 @@
 }
 
 .receiver-style {
-  border-radius: 20 20px 20px 20px;
+  width:250px;
+  border-radius: 20px 20px 20px 0;
   background: linear-gradient(155deg, #4c4141, transparent);
   min-height: 80px;
-  padding: 10px;
+  padding: 7px;
   color: rgb(234, 229, 229);
-
 }
 
 .avatar_sender {
-
-
   >img {
     width: 30px;
     border-radius: 20px;
@@ -79,7 +75,7 @@
 
 .message-p-chat {
   word-wrap: break-word;
-  margin-top: 10px;
+  margin-top: 18px;
   text-align: start;
   padding: 6px;
 }
