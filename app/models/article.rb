@@ -27,4 +27,12 @@ class Article < ApplicationRecord
     update(summary: openai_summary)
   end
 
+  def source_name
+    api_data['provider']&.first&.dig('name')
+  end
+
+  def source_image_url
+    api_data['provider']&.first&.dig('image', 'thumbnail', 'contentUrl')
+  end
+
 end

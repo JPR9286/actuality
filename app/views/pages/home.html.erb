@@ -5,20 +5,18 @@
     <%= link_to article_path(article) do %>
       <div class="image-card">
         <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
+        <div class="col category"><%= article.category&.name %></div>
       </div>
-      <div class ="p-3">
-        <div class="title-card mt-2">
-          <p><%= article.title%></p>
+      <div class ="text-card p-2">
+        <div class="title-card">
+          <div><%= article.title%></div>
         </div>
-          <p><%= article.date_article %></p>
-          <p><%= article.category&.name %></p>
-          <p><%= article.description %></p>
-          <p><%= article.source %></p>
-          <div class="text-center">
-            <%= link_to article.article_url do %>
-              <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
-            <% end %>
-          </div>
+        <p><%= article.description.truncate(150) %></p>
+        <div class="row d-flex justify-content-center">
+          <div class="col date"><%= article.date_article %></div>
+          <div class="col source"><%= article.source %></div>
+        </div>
+          <div class="lire"><%= link_to "lire...", article.article_url %></div>
       </div>
     <% end %>
     <% unless article.equal?(@articles.last) %>

@@ -9,11 +9,14 @@
     justify-content: center;
   }
 
-  .title-chatroom {
-    h1 {
-      text-align: center;
-    }
 
+  .groupe-title {
+    display: flex;
+    margin-top: 12px;
+    font-size: 0px;
+    align-content: center;
+    justify-content: center;
+    margin-left: -15px !important;
   }
 }
 
