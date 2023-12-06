@@ -3,26 +3,28 @@
   // background: linear-gradient(45deg, black, rgb(27, 29, 82), rgb(43, 18, 145));
   // background: linear-gradient(75deg, #101132, #290d99);
   // background: linear-gradient(75deg, #101132, #290d99);
-  background: linear-gradient(75deg, #101132, #290d99, RGB(23, 43, 121))
+  background: linear-gradient(75deg, #101132, RGB(27, 13, 65), RGB(22, 37, 95))
 }
 
 .modal-header {
-  background-color: rgb(27, 29, 82)
-}
-
-.modal-card-article {
+  // background-color: rgb(27, 29, 82)
   background: linear-gradient(75deg, #101132, #290d99);
 }
 
-.modal-title-card {
+.modal-card-article {
   // background: linear-gradient(75deg, #101132, #290d99);
-  font-size: 22px;
-  text-align: center;
+  background: linear-gradient(97deg, #101132, RGB(22, 37, 95))
+}
+
+.modal-title-card {
+  font-size: 20px;
+  // text-align: center;
+  margin-left: 5px;
+
 }
 
 .modal-description-card {
-  // background: linear-gradient(75deg, #101132, #290d99);
-  font-size: 16px;
+  font-size: 15px;
   margin-left: 5px;
 }
 
@@ -41,4 +43,18 @@
   display: flex;
   align-items: flex-end;
   min-height: calc(100% - var(--bs-modal-margin) * 2);
+}
+
+#message-modal > textarea {
+  background-color: transparent;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  color: whitesmoke;
+}
+
+#message_content:focus{
+  border-color: blue;
+}
+
+#message-modal > textarea::placeholder {
+  color: white;
 }
