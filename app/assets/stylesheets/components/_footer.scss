@@ -1,0 +1,44 @@
+.footer {
+  .menu {
+    position: absolute;
+    bottom: 0;
+  }
+  .footer_img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;  }
+  .avatar_img {
+
+    bottom: 0;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+  .row  {
+    position: absolute;
+    bottom: 0;
+    width: 390;
+    height: 6vh;
+  }
+  .col1 {
+    position: absolute;
+    bottom: 25px;
+    left: 51px;
+  }
+  .col2 {
+    position: absolute;
+    bottom: 45px;
+    left: 170px;
+  }
+  .col3 {
+    position: absolute;
+    bottom: 20px;
+    left: 283px;
+  }
+  .img_btn {
+    width: 70px;
+    height: 70px;
+  }
+}

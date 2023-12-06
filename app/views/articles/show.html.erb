@@ -33,7 +33,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="shareModalLabel">Share ur Article</h1>
+            <h1 class="modal-title fs-5" id="shareModalLabel">Partage ton article</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -60,7 +60,7 @@
               <% end %>
 
               <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
+                <%= f.input :content, as: :text, label: 'Ajouter un commentaire'%>
                 <%= f.input :article_id, input_html: {value: @article.id, class: "d-none"}%>
                 <%= f.submit %>
               <% end %>

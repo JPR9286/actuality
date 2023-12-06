@@ -1,16 +1,21 @@
-<div class="row justify-content-between position-fixed bottom-0 w-100">
-  <div class="col ">
-    <%= link_to root_path, class: "p-2" do %>
-      <%= image_tag("btn_home.png", alt: "Home") %>
-    <% end %>
-    <%= link_to searches_path, class: "p-2" do %>
-      <%= image_tag("btn_search.png", alt: "search") %>
-    <% end %>
-    <%= link_to user_categories_path, class: "p-2" do %>
-      <%= image_tag("btn_menu.png", alt: "menu") %>
-    <% end %>
-    <%= link_to chatrooms_path, class: "p-2" do %>
-      <%= image_tag("btn_chat.png", alt: "chat") %>
-    <% end %>
+<div class="footer">
+  <div class="footer_img">
+    <%= image_tag("footer_img.png", alt: "footer image") %>
   </div>
+
+  <div class="menu">
+    <div class="row d-flex">
+    <%= link_to chatrooms_path, class: "col1" do %>
+      <%= image_tag("btn_click.png", alt: "chat", class: "img_btn") %>
+    <% end %>
+    <%= link_to user_categories_path, class: "col2" do %>
+      <%= image_tag("btn_click.png", alt: "search", class: "img_btn") %>
+    <% end %>
+    <%= link_to searches_path, class: "col3" do %>
+      <%= image_tag("btn_click.png", alt: "menu", class: "img_btn") %>
+    <% end %>
+
+    </div>
+  </div>
+
 </div>
