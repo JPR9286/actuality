@@ -1,44 +1,93 @@
 .footer {
-  .menu {
-    position: absolute;
-    bottom: 0;
-  }
-  .footer_img {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    object-fit: cover;  }
-  .avatar_img {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #1D1C1C;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  filter: drop-shadow(0px -6px 34px rgba(255, 41, 41, 0.25));
 
-    bottom: 0;
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+  & .menu-link {
+    width: 120px;
+  }
+
+  & .menu-link a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+  & .menu-link img {
+    width: 30px;
+    height: 30px;
+  }
+  & .menu-link p {
+    margin-bottom: 0;
+    font-weight: 300;
+  }
+  & #profile img {
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.72) inset, 0px 0px 0px 6px #1D1C1C;
+    background-color: black;
+    width: 80px;
+    height: 80px;
+    margin-top: -50px;
+    border: 2px solid white;
+    border-radius: 50px;
+
+  }
 }
-  .row  {
-    position: absolute;
-    bottom: 0;
-    width: 390;
-    height: 6vh;
+
+.footer.footer.chatrooms {
+  filter: none;
+  & #profile img {
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.72) inset, 0px 0px 0px 6px #1D1C1C;
+    animation: get-smaller 0.3s ease-in-out 0.3s forwards;
+
+    width: 80px;
+    height: 80px;
+    margin-top: -50px;
+
+    border: 2px solid white;
+    border-radius: 50px;
   }
-  .col1 {
-    position: absolute;
-    bottom: 25px;
-    left: 51px;
+
+  & #profile p {
+    opacity: 1;
+    animation: hide-text 0.3s ease-in-out 0.3s forwards;
+    display: none;
+
   }
-  .col2 {
-    position: absolute;
-    bottom: 45px;
-    left: 170px;
+}
+
+@keyframes get-smaller {
+  from {
+    width: 80px;
+    height: 80px;
+    margin-top: -50px;
   }
-  .col3 {
-    position: absolute;
-    bottom: 20px;
-    left: 283px;
+  to {
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
   }
-  .img_btn {
-    width: 70px;
-    height: 70px;
+}
+
+@keyframes hide-text {
+  0% {
+    opacity: 1;
+
+  }
+  70% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    display: none;
   }
 }
