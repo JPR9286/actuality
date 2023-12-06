@@ -1,7 +1,10 @@
 .message-row {
+  position: relative;
   margin-bottom: 10px;
   padding: 8px;
 }
+
+
 
 .sender-style,
 .receiver-style {
@@ -21,6 +24,16 @@
   min-height: 80px;
   padding: 10px;
   color: rgb(234, 229, 229);
+  .avatar_sender {
+    top: -17px;
+    right: 279px;
+    position: absolute;
+
+    >img {
+      width: 48px;
+      border-radius: 50%;
+    }
+  }
 }
 
 .sender-style {
@@ -31,6 +44,16 @@
   background: linear-gradient(71deg, black, transparent);
 
   color: rgb(234, 229, 229);
+  .avatar_sender {
+    top: -11px;
+    left: 278px;
+    position: absolute;
+
+    >img {
+      width: 48px;
+      border-radius: 50%;
+    }
+  }
 }
 
 .img-article-chat {
