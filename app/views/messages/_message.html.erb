@@ -4,14 +4,6 @@
 
     <% if message.response.present? || message.article_id %>
       <div class="comment-message mb-2">
-<<<<<<< HEAD
-=======
-          <div class="author-message">
-              <%= message.response_author %>
-              <p><%= message.response %></p>
-          </div>
-
->>>>>>> 38e2969e7b9402450ac08775a2d991f5c658501a
           <% if message.article_id %>
             <% article = Article.find(message.article_id)  %>
             <%= link_to article_path(message.article_id), class: "text-decoration-none" do %>
@@ -30,8 +22,7 @@
 
       </div>
     <% end %>
-<<<<<<< HEAD
-    
+
     <small style="margin-top: 5px;">
      <% time = ((Time.now - message.created_at) / 60).round %>
         <strong class="author-message"><%= message.user.nickname %> : </strong>
@@ -46,25 +37,10 @@
         <% elsif time > 1440 %>
           <%= "(Il y a #{time /60} heures)"%>
         <%end%>
-=======
-    <small p-3>
-    <% time = ((Time.now - message.created_at) / 60).round %>
-        <div class="author-message"><%= message.user.nickname %>:
-          <%if time < 1 %>
-            <%= "(Il y a moins d'une minute)" %>
-          <% elsif time == 1 %>
-            <%= "(Il y a #{time} minute)"%>
-          <% elsif time < 60 %>
-            <%= "(Il y a #{time} minutes)" %>
-          <% elsif time < 1440 %>
-            <%= "(Il y a #{time / 60} heures)" %>
-          <% elsif time > 1440 %>
-            <%= "(Il y a #{time /60} heures)"%>
-          <%end%>
-        </div>
-      <p class="mb-0 message-p-chat" data-chatroom-subscription-target="messageContent"><%= message.content %></p>
->>>>>>> 38e2969e7b9402450ac08775a2d991f5c658501a
     </small>
+    <div class="message-p-chat">
+      <p class="mb-0" data-chatroom-subscription-target="messageContent"><%= message.content %></p>
+    </div>
 
 
   <button class="btn comment-this-message" data-comment-message-target="button" data-action="click->chatroom-subscription#fillForm"><i class="fa-sharp fa-solid fa-reply fa-lg" style="color: #b4ccdf;;"></i></button>

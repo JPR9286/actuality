@@ -22,25 +22,13 @@
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.sort_by {|obj| obj.created_at }.each do |message| %>
-<<<<<<< HEAD
     <div class="align-items-end gap-2 justify-content-start message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
       <div class="avatar_sender">
 
        <% user = User.find(message.user_id).nickname%>
-=======
-    <div class="align-items-end d-flex gap-2 justify-content-start message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-      <div class="avatar_sender">
 
-       <% user = User.find(message.user_id).nickname%>
-
->>>>>>> 38e2969e7b9402450ac08775a2d991f5c658501a
-       <% if user == "Adel" %>
-        <%= image_tag("avatars/avatar_adel2.jpeg")%>
-       <% elsif user == "Jeremy" %>
-        <%= image_tag("avatars/avatar_jeremy.png")%>
-       <% elsif user == "Jerome" %>
-        <%= image_tag("avatars/avatar_jerome.jpg")%>
-       <% end %>
+        <%= image_tag(message.user.image_url)%>
+       
 
       </div>
       <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
