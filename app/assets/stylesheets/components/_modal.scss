@@ -1,0 +1,44 @@
+.modal-body {
+  // background-color: rgb(27, 29, 82)
+  // background: linear-gradient(45deg, black, rgb(27, 29, 82), rgb(43, 18, 145));
+  // background: linear-gradient(75deg, #101132, #290d99);
+  // background: linear-gradient(75deg, #101132, #290d99);
+  background: linear-gradient(75deg, #101132, #290d99, RGB(23, 43, 121))
+}
+
+.modal-header {
+  background-color: rgb(27, 29, 82)
+}
+
+.modal-card-article {
+  background: linear-gradient(75deg, #101132, #290d99);
+}
+
+.modal-title-card {
+  // background: linear-gradient(75deg, #101132, #290d99);
+  font-size: 22px;
+  text-align: center;
+}
+
+.modal-description-card {
+  // background: linear-gradient(75deg, #101132, #290d99);
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.form-select {
+  background-color: transparent;
+  color: whitesmoke;
+}
+
+// .form-control {
+//   background-color: transparent;
+//   border: var(--bs-border-width) solid var(--bs-border-color);
+//   color: whitesmoke;
+// }
+
+.modal-dialog-bottom {
+  display: flex;
+  align-items: flex-end;
+  min-height: calc(100% - var(--bs-modal-margin) * 2);
+}

@@ -18,7 +18,7 @@
     </div>
 
     <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
-    <div class="d-flex flex-row" style="overflow-x: scroll; margin-bottom:20px; padding-bottom:10px;" data-filter-chats-target="rooms">
+    <div class="d-flex flex-row" style="overflow-x: scroll; margin-bottom:15px; padding-bottom:10px;" data-filter-chats-target="rooms">
       <%= render "chatrooms_list", chatrooms: @chatrooms %>
     </div>
   <%# <i class="fa-solid fa-circle-plus"> see more </i> %>
@@ -29,7 +29,7 @@
     <% @articles.each do |article| %>
       <%# <span class="border border-dark"></span> %>
 
-      <div class="card-article mb-5">
+      <div class="card-article">
 
         <%= link_to article_path(article) do  %>
 
@@ -70,40 +70,45 @@
 
       <% @articles.each do |article| %>
         <div class="modal fade" id="shareModal-<%=article.id%>" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-bottom">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="shareModalLabel">Partage ton Article</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <div class="card-article mb-5">
+                <div class="modal-card-article mb-4">
                   <div class="image-card">
                     <%# if article.image_url  %>
                     <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
                     <%# else image par defaut %>
                     <%# end %>
                   </div>
-                  <div class="title-card mt-2">
+                  <div class="modal-title-card mt-2">
                     <p><%= article.title %></p>
                   </div>
-                  <div class="description-card">
+                  <div class="modal-description-card">
                       <%# if article.description %>
-                      <p><%= article.description.truncate(100) %></p>
+                      <p><%= article.description.truncate(150) %></p>
                       <%# end %>
                   </div>
 
                   <div data-controller="share-article">
                     <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
                     <%= simple_form_for("", url: "") do |f| %>
-                      <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
+                      <%= f.input :chatroom,
+                        collection: Chatroom.pluck(:title, :id),
+                        input_html: {data: {action: 'change->share-article#setChatroom'}},
+                        include_blank: "Sélectionne ton groupe",
+                        label: false %>
                     <% end %>
 
                     <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                      <%= f.input :content, as: :text, label: 'Ajoute un commentaire'%>
-                      <%= f.input :article_id, input_html: {value: article.id, class: "d-none"}%>
-                    <%= f.submit "Partager l'article " %>
-                  <% end %>
+                      <%= f.input :content, as: :text, label: false, include_blank: "Ajoute un commentaire"%>
+                      <%= f.input :article_id, input_html: {value: article.id}, wrapper_html:{class: "d-none"}%>
+                    <%= f.submit "Partager l'article", style:"width: 100%"%>
+                  <% end %>g
+
                   </div>
                 </div>
               </div>
