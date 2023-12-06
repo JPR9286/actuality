@@ -38,19 +38,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="card-article mb-5">
+            <div class="modal-card-article">
               <div class="image-card">
                 <%# if article.image_url  %>
                 <%= image_tag @article.image_url, crop: :fill, style:"width: 100%";%>
                 <%# else image par defaut %>
                 <%# end %>
               </div>
-              <div class="title-card mt-2">
+              <div class="modal-title-card mt-2">
                 <p><%= @article.title %></p>
               </div>
-              <div class="description-card">
+              <div class="modal-description-card">
                   <%# if article.description %>
-                  <p><%= @article.description.truncate(100) %></p>
+                  <p><%= @article.description.truncate(150) %></p>
                   <%# end %>
               </div>
 
