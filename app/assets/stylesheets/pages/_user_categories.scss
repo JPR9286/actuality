@@ -5,12 +5,12 @@
 
   .category_id {
     color: $white;
-    background-color: $dark;
+    background-color: #2C2EE1;
     border-radius: 20px;
     width: 100%;
     text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
+    padding-right: 55px;
     padding-top: 3px;
     padding-bottom: 3px;
     display: inline-block;
@@ -32,9 +32,9 @@
 .chatroom_users {
   .chatroom_id {
     color: $white;
-    background-color: $dark;
+    background-color: #2C2EE1;
     border-radius: 20px;
-    height: 30px;
+    height: auto;
     width: 100%;
     text-align: center;
     padding-left: 15px;
@@ -42,6 +42,7 @@
     padding-top: 3px;
     padding-bottom: 3px;
     display: inline-block;
+    align-items: center;
 
     &:hover {
       color: $black;
@@ -110,4 +111,13 @@
   .scrolling-wrapper{
     overflow-x: auto;
   }
+
 }
+  .btn_modif {
+    position: relative;
+    top: 11px;
+    text-align: right;
+    font-size: 10px;
+    text-decoration: none;
+    color: $white;
+  }
