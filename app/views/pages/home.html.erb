@@ -7,6 +7,10 @@
         <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
         <div class="col category"><%= article.category&.name %></div>
       </div>
+      <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
+          <i class="fa-solid fa-share"></i>
+        </button>
+
       <div class ="text-card p-2">
         <div class="title-card">
           <div><%= article.title%></div>

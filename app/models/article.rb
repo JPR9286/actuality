@@ -13,12 +13,6 @@ class Article < ApplicationRecord
 
   validates :title, uniqueness: { scope: :date_article }
 
-  # def summary
-  #   set_summary if super.nil?
-
-  #   super
-  # end
-
   def set_summary
     # text = ExtractTextFromUrl.new(article_url).call['text']
     return unless content.present?
@@ -34,5 +28,4 @@ class Article < ApplicationRecord
   def source_image_url
     api_data['provider']&.first&.dig('image', 'thumbnail', 'contentUrl')
   end
-
 end

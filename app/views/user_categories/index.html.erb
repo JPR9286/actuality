@@ -5,7 +5,7 @@
     <div class="titre d-flex justify-content-between">
       <% colors = ["red","green","blue"] %>
       <h3 class="" >Mes Catégories  - <%= @user_categories.count %></h3>
-      <button onclick="document.querySelector('.all_categories').classList.toggle('d-none')">Afficher toutes les catégories</button>
+      <a class="btn_modif" onclick="document.querySelector('.all_categories').classList.toggle('d-none')">modifier</a>
     </div>
     <div class="row scrolling-wrapper flex-row flex-nowrap">
         <% @user_categories.each do |category| %>
