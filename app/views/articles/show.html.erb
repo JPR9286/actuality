@@ -4,8 +4,13 @@
   <p><%= @article.date_article %></p>
 
   <div data-controller="article-summary"
-    data-article-summary-text-value="<%= @article.summary %>"
+    data-article-summary-summary-value="<%= @article.summary %>"
+    data-article-summary-long-summary-value="<%= @article.long_summary %>"
     data-article-summary-path-value="<%= fetch_summary_article_path(@article) %>">
+    <button data-article-summary-target="summaryBtn" data-action="click->article-summary#summarizeShort">Réusmé court</button>
+    <button class="d-none" data-article-summary-target="longSummaryBtn" data-action="click->article-summary#summarizeLong">Réusmé long</button>
+    <div class="d-none" data-article-summary-target="summaryContainer"></div>
+    <div class="d-none" data-article-summary-target="longSummaryContainer"></div>
     <div class="text-center d-flex flex-column align-items-center" data-article-summary-target="spinner">
       <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>

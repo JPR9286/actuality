@@ -5,20 +5,29 @@
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
 <div class="chat-title-exit">
-<div>
-</div>
-  <h1><%= @chatroom.title %></h1>
-  <%= image_tag @chatroom.photo %>
+
+  <div class="img-groupe-title">
+
+    <% if @chatroom.photo.attached? %>
+    <%= cl_image_tag @chatroom.photo.key %>
+    <%end%>
+
+    <div class="groupe-title">
+    <h1><%= @chatroom.title %></h1>
+    </div>
+  </div>
+
+
   <div class="exit-chat">
     <%= link_to chatrooms_path do %>
-    <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #f40c0c;"></i>
+    <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #b4ccdf;;"></i>
     <% end %>
   </div>
 </div>
 
 
   <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
+    <% @chatroom.messages.sort_by {|obj| obj.created_at }.each do |message| %>
     <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
       <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
         <%= render "messages/message", message: message %>
@@ -47,8 +56,8 @@
         placeholder: "Message",
         wrapper_html: {class: "flex-grow-1"}
       %>
-  <div id="button-send-chat">
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <div>
+    <%= image_submit_tag("actuality_logo.png", class: "logo-submit btn ")%>
   </div>
 <% end %>
 </div>
