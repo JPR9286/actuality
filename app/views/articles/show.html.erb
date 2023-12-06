@@ -26,11 +26,12 @@
   </div>
 
   <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=@article.id%>">
-      <i class="fa-solid fa-share"></i>
+      <%# <i class="fa-solid fa-share"></i> %>
+      <%= image_tag("btn_share.svg") %>
     </button>
 
     <div class="modal fade" id="shareModal-<%=@article.id%>" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-bottom">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="shareModalLabel">Partage ton article</h1>
@@ -53,19 +54,23 @@
                   <%# end %>
               </div>
 
-            <div data-controller="share-article">
+          <div data-controller="share-article">
               <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
               <%= simple_form_for("", url: "") do |f| %>
-                <%= f.input :chatroom, collection: Chatroom.pluck(:title, :id), input_html: {data: {action: 'change->share-article#setChatroom'}} %>
+                <%= f.input :chatroom,
+                  collection: Chatroom.pluck(:title, :id),
+                  input_html: {data: {action: 'change->share-article#setChatroom'}},
+                  include_blank: "Sélectionne ton groupe",
+                  label: false %>
               <% end %>
 
               <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                <%= f.input :content, as: :text, label: 'Ajouter un commentaire'%>
-                <%= f.input :article_id, input_html: {value: @article.id, class: "d-none"}%>
-                <%= f.submit %>
-              <% end %>
-            </div>
+                <%= f.input :content, as: :text, label: false, placeholder: "Ajoute un commentaire" , wrapper_html:{id: "message-modal"} %>
+                <%= f.input :article_id, input_html: {value: @article.id}, wrapper_html:{class: "d-none"} %>
+                <%= f.submit "Partager l'article", style:"width: 100%; height: 50px; border-radius: 8px;" %>
+            <% end %>
 
+            </div>
           </div>
         </div>
       </div>

@@ -1,31 +1,82 @@
 <h1>Actuality </h1>
 <div class="home">
   <% @articles.each do |article| %>
-  <div class="card-article">
-    <%= link_to article_path(article) do %>
-      <div class="image-card">
-        <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
-        <div class="col category"><%= article.category&.name %></div>
-      </div>
-      <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
-          <i class="fa-solid fa-share"></i>
-        </button>
+    <div class="card-article">
+      <%= link_to article_path(article) do %>
+        <div class="image-card">
+          <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
+          <div class="col category"><%= article.category&.name %></div>
+        </div>
 
-      <div class ="text-card p-2">
-        <div class="title-card">
-          <div><%= article.title%></div>
+        <div class ="text-card p-2">
+          <div class="title-card">
+            <div><%= article.title%></div>
+          </div>
+          <p><%= article.description.truncate(150) %></p>
+          <div class="row d-flex justify-content-center">
+            <div class="col date"><%= article.date_article %></div>
+            <div class="col source"><%= article.source %></div>
+          </div>
+            <div class="lire"><%= link_to "lire...", article.article_url %></div>
         </div>
-        <p><%= article.description.truncate(150) %></p>
-        <div class="row d-flex justify-content-center">
-          <div class="col date"><%= article.date_article %></div>
-          <div class="col source"><%= article.source %></div>
+      <% end %>
+        <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
+            <%# <i class="fa-solid fa-share"></i> %>
+          <%= image_tag("btn_share.svg") %>
+        </button>
+      <% unless article.equal?(@articles.last) %>
+        <hr style="border-top: 1px solid white;">
+      <% end %>
+    </div>
+  <% end %>
+    <% @articles.each do |article| %>
+      <div class="modal fade" id="shareModal-<%=article.id%>" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-bottom">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="shareModalLabel">Partage ton Article</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-card-article">
+                <div class="image-card">
+                  <%# if article.image_url  %>
+                  <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
+                  <%# else image par defaut %>
+                  <%# end %>
+                </div>
+                <div class="modal-title-card mt-2">
+                  <p><%= article.title %></p>
+                </div>
+                <div class="modal-description-card">
+                    <%# if article.description %>
+                    <p><%= article.description.truncate(150) %></p>
+                    <%# end %>
+                </div>
+
+
+                <div data-controller="share-article">
+                  <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
+                  <%= simple_form_for("", url: "") do |f| %>
+                    <%= f.input :chatroom,
+                      collection: Chatroom.pluck(:title, :id),
+                      input_html: {data: {action: 'change->share-article#setChatroom'}},
+                      include_blank: "Sélectionne ton groupe",
+                      label: false %>
+                  <% end %>
+
+                  <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
+                    <%= f.input :content, as: :text, label: false, placeholder: "Ajoute un commentaire" , wrapper_html:{id: "message-modal"} %>
+                    <%= f.input :article_id, input_html: {value: article.id}, wrapper_html:{class: "d-none"} %>
+                    <%= f.submit "Partager l'article", style:"width: 100%; height: 50px; border-radius: 8px;" %>
+                  <% end %>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
-          <div class="lire"><%= link_to "lire...", article.article_url %></div>
       </div>
     <% end %>
-    <% unless article.equal?(@articles.last) %>
-      <hr style="border-top: 1px solid white;">
-      <% end %>
-  </div>
-  <% end %>
 </div>
