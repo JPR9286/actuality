@@ -26,9 +26,8 @@
       <div class="avatar_sender">
 
        <% user = User.find(message.user_id).nickname%>
-       <% if user == "Alex" %>
-        <%= image_tag("avatars/avatar_alex.png")%>
-       <% elsif user == "Adel" %>
+
+       <% if user == "Adel" %>
         <%= image_tag("avatars/avatar_adel2.jpeg")%>
        <% elsif user == "Jeremy" %>
         <%= image_tag("avatars/avatar_jeremy.png")%>
