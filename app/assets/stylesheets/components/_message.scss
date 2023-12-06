@@ -10,11 +10,13 @@
   max-width: 400px;
   min-height: 30px;
   border-radius: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .receiver-style {
-  border-radius: 0 35px 20px 35px;
-  background-color: rgba(55, 59, 59, 0.804);
+  border-radius: 0 35px 35px 35px;
+  background: linear-gradient(155deg, #4c4141, transparent);
   width: 250px;
   min-height: 80px;
   padding: 10px;
@@ -22,39 +24,37 @@
 }
 
 .sender-style {
-  border-radius: 35px 0 35px 20px;
+  border-radius: 35px 0 20px 20px;
   width: 250px;
   min-height: 80px;
   padding-top: 0;
-  background-color: #20A090;
-  ;
+  background: linear-gradient(71deg, black, transparent);
+
   color: rgb(234, 229, 229);
 }
 
 .img-article-chat {
   >img {
-    width: 80%;
+    width: 100%;
+    border-radius: 35px 0 0 0;
   }
 }
 
 .comment-this-message {
   position: relative;
   margin-left: 200px;
-  margin-bottom: -10px;
 }
 
 .chat-title-article {
   padding: 5px;
-  color: black;
+  color: rgb(223, 213, 213);
 }
 
-.author-message {
-  padding-top: 1px;
-  font-size: 20px;
-  color: antiquewhite;
-}
+
+
 
 .message-p-chat {
+  word-wrap: break-word;
   margin-top: 10px;
 }
 
@@ -65,7 +65,7 @@
   position: absolute;
   margin-left: 20px;
   width: 86%;
-  bottom: 143px;
+  bottom: 148px;
   z-index: 10;
   background-color: rgb(90, 98, 98);
 
@@ -73,5 +73,10 @@
     padding-top: 10px;
     color: rgb(215, 210, 210);
     margin: 0 0 0 10px;
+  }
+
+  i {
+    margin-left: 303px;
+    margin-top: -53px;
   }
 }

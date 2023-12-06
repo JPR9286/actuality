@@ -35,7 +35,7 @@ class GetNewsFromBing
 
   def headers
     {
-      'Ocp-Apim-Subscription-Key': ENV['BING_API_KEY']
+      'Ocp-Apim-Subscription-Key' => ENV['BING_API_KEY']
     }
   end
 
