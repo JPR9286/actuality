@@ -26,11 +26,12 @@ body {
 
   align-content: center;
 
+
+}
   h1 {
     text-align: right;
+    position: sticky;
   }
-}
-
 #background {
   background-image: url("background_bg.png");
   background-size: cover;
@@ -65,4 +66,12 @@ body {
 .form-control {
   background-color: $black;
   color: $white;
+}
+.home_img {
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  position: sticky;
 }
