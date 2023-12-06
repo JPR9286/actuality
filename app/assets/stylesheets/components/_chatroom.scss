@@ -14,7 +14,6 @@
   .messages {
     height: 100%;
     overflow: scroll;
-    padding: 1rem;
   }
 
 
@@ -69,19 +68,20 @@
 
 .comment-message {
   font-size: 14px;
-  color:$white;
-  display: flex;
+  color: white;
   border-radius: 20px 0 0 0;
-  text-align: center;
   width: 100%;
   padding-top: 0;
-  padding-left: 0px;
+  margin-bottom: 0 !important;
   background-color: rgba(72, 103, 103, 0.804);
 
+  a {
+    padding-left: 0px;
+  }
+
   p {
-    color:$white;
+    color: $white;
     text-align: start;
-    padding: 6px;
     font-size: 14px;
     word-wrap: break-word;
   }
@@ -95,7 +95,6 @@
 }
 
 .author-message {
-  position: absolute;
-  left: 46px;
-  padding-left: 42px;
+  padding-left: 5px;
+  margin-top: 7px;
 }
