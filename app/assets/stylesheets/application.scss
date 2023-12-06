@@ -53,13 +53,8 @@ body {
   }
 }
 .wrapper{
-  height: 100vh;
+  height: 90vh;
   overflow: auto;
-
-}
-
-.min-h-100 {
-  min-height: calc(100vh - 66px);
 }
 
 .form-inputs {

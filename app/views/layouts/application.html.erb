@@ -15,18 +15,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body id="<%= controller_name %>_<%= action_name %>">
     <div id="background">
     </div>
-    <div class="container <% unless action_name == "show" && controller_name == "chatrooms" %>min-h-100<% end %> mb-5">
-      <%= render "shared/flashes" %>
+    <div class="container">
+      <%#= render "shared/flashes" %>
       <div class="wrapper">
         <%= yield %>
       </div>
       <%= render "shared/footer" %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+
 
   </body>
 </html>

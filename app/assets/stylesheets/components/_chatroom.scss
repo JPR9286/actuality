@@ -1,13 +1,12 @@
 .chatroom {
-  margin-top: 9px;
-  height: 85vh;
+
+  height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
 
   h1 {
-    border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
   }
@@ -30,7 +29,9 @@
 }
 
 #button-send-chat {
-
+  width: 50px;
+  height: 50px;
+  background-image: url("app/assets/images/actuality_logo.png");
   margin-left: 10px;
 }
 
@@ -68,12 +69,34 @@
   }
 }
 
+.title-chatroom {
+  text-align: center;
+  font-family: Krona one;
+}
+
 
 .comment-message {
-  border-radius: 35px 0 10px 10px;
+  justify-content: center;
+  display: flex;
+  border-radius: 35px 0 0 0;
   text-align: center;
   width: 250px;
   padding-top: 0;
   padding-left: 0px;
-  background-color: rgba(55, 59, 59, 0.804);
+  background-color: rgba(72, 103, 103, 0.804);
+
+  p {
+    word-wrap: break-word;
+  }
+}
+
+
+.logo-submit {
+  width: 65px !important;
+  height: 50px !important;
+  padding-left: 13px;
+}
+
+.author-message-p {
+  margin-top: 12px;
 }
