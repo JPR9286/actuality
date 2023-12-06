@@ -30,7 +30,9 @@ gem "jbuilder"
 gem "cloudinary"
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", ">= 4.0.1"
+# gem "redis", ">= 4.0.1"
+gem 'redis', '~> 4.7', '< 4.8'
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -84,5 +86,6 @@ group :test do
 end
 
 gem 'rest-client'
-gem "sidekiq", "< 7"
+# gem "sidekiq", "< 7"
+gem "sidekiq", "~> 6.5", "< 7"
 gem "sidekiq-failures", "~> 1.0"

@@ -3,7 +3,7 @@
   data-chatroom-subscription-target="comment">
 
     <% if message.response.present? || message.article_id %>
-      <div class="comment-message mb-3">
+      <div class="comment-message mb-2">
           <div class="author-message">
             <div class="author-message-p">
               <%= message.response_author %>
@@ -24,7 +24,7 @@
           <% end %>
       </div>
     <% end %>
-    <small>
+    <small style="margin-top: 10px;">
     <% time = ((Time.now - message.created_at) / 60).round %>
         <strong class="author-message"><%= message.user.nickname %>: </strong>
          <%if time < 1 %>
