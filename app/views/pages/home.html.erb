@@ -1,4 +1,4 @@
-<h1>Actuality </h1>
+
 <div class="home">
   <% @articles.each do |article| %>
     <div class="card-article">
@@ -9,15 +9,17 @@
         </div>
 
         <div class ="text-card p-2">
-          <div class="title-card">
+          <div class="title-card mb-4">
             <div><%= article.title%></div>
           </div>
-          <p><%= article.description.truncate(150) %></p>
-          <div class="row d-flex justify-content-center">
-            <div class="col date"><%= article.date_article %></div>
-            <div class="col source"><%= article.source %></div>
+        <div class="description-text d-none">
+            <p><%= article.description.truncate(150) %></p>
+        </div>
+          <div class="row justifspace-between-">
+            <div class="col-6 date"><%= article.date_article %></div>
+            <div class="col-6 source"><%= article.source %></div>
           </div>
-            <div class="lire"><%= link_to "lire...", article.article_url %></div>
+            <div class="lire"><%= link_to "lire l'original", article.article_url %></div>
         </div>
       <% end %>
         <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
