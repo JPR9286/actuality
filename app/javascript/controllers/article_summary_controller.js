@@ -54,7 +54,7 @@ export default class extends Controller {
       this.summaryContainerTarget.classList.remove('d-none');
       const typed = new Typed(this.summaryContainerTarget, {
         strings: [this.summaryValue],
-        typeSpeed: 5,
+        typeSpeed: -10,
         showCursor: false
       });
     } else {
@@ -76,7 +76,7 @@ export default class extends Controller {
         this.summaryContainerTarget.classList.remove('d-none');
         const typed = new Typed(this.summaryContainerTarget, {
           strings: [data["summary"]],
-          typeSpeed: 5,
+          typeSpeed: -10,
           showCursor: false
         });
       })
@@ -96,7 +96,7 @@ export default class extends Controller {
       this.longSummaryContainerTarget.classList.remove('d-none');
       const typed = new Typed(this.longSummaryContainerTarget, {
         strings: [this.longSummaryValue],
-        typeSpeed: 5,
+        typeSpeed: -10,
         showCursor: false
       });
     } else {
@@ -118,7 +118,7 @@ export default class extends Controller {
         this.longSummaryContainerTarget.classList.remove('d-none');
         const typed = new Typed(this.longSummaryContainerTarget, {
           strings: [data["long_summary"]],
-          typeSpeed: 5,
+          typeSpeed: -10,
           showCursor: false
         });
       })

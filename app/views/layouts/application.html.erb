@@ -21,6 +21,7 @@
     <div class="container <%  "min-h-100" unless action_name == "show" && controller_name == "chatrooms" %> mb-5">
     <div id="background">
     </div>
+    <div class="container <%  "min-h-100" unless action_name == "show" && controller_name == "chatrooms" %> mb-5">
       <%= render "shared/flashes" %>
       <div class="wrapper">
         <%= yield %>
@@ -28,7 +29,7 @@
       <%= render "shared/footer" %>
     </div>
 
-  
+
 
   </body>
 </html>
