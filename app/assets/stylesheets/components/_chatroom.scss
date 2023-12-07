@@ -14,13 +14,13 @@
   .messages {
     height: 100%;
     overflow: scroll;
-    padding: 1rem;
   }
 
 
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
+
 
     .form-group {
       margin-bottom: 0;
@@ -35,11 +35,7 @@
   margin-left: 10px;
 }
 
-.chat-title {
-  display: flex;
-  justify-content: center;
 
-}
 
 #message_content {
   border-radius: 10px;
@@ -58,10 +54,11 @@
   justify-items: center;
 
   img {
-    padding: 10px;
+    object-fit: cover;
     margin: 5px;
-    width: 150px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
   }
 }
 
@@ -69,19 +66,20 @@
 
 .comment-message {
   font-size: 14px;
-  color:$white;
-  display: flex;
+  color: white;
   border-radius: 20px 0 0 0;
-  text-align: center;
   width: 100%;
   padding-top: 0;
-  padding-left: 0px;
+  margin-bottom: 0 !important;
   background-color: rgba(72, 103, 103, 0.804);
 
+  a {
+    padding-left: 0px;
+  }
+
   p {
-    color:$white;
+    color: $white;
     text-align: start;
-    padding: 6px;
     font-size: 14px;
     word-wrap: break-word;
   }
@@ -95,5 +93,6 @@
 }
 
 .author-message {
-  margin-top: 10px;
+  padding-left: 5px;
+  margin-top: 7px;
 }

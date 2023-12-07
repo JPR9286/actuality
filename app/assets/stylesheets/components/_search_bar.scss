@@ -1,8 +1,20 @@
 .search-bar {
-  position: sticky;
+  position: fixed;
   top: 20px;
   z-index: 500;
-  // background-color: red;
+  width: 100%;
+  left: 11px;
+  // background-color: black;
+  transition: all ease 0.4s;
+  // background: rgba(0, 0, 0, 0.5);
+  // background: #1F2072;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+}
+
+.searchbardisapear {
+  margin-top: 40px;
+  padding-top: 35px;
 }
 
 .bg-color-searchbar {
@@ -14,7 +26,3 @@
 .bg-color-searchbar::placeholder {
   color: white;
 }
-
-// .custom-input {
-//   background-color: white;
-// }
