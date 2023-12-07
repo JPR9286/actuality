@@ -1,6 +1,7 @@
 <div class="container" data-controller="filter-chats">
 
-      <div class="row justify-content-center my-3 search-bar" data-controller="searchbar" data-searchbar-target="searchbar">
+  <div data-controller="searchbar">
+      <div class="row justify-content-center my-3 search-bar" data-searchbar-target="searchbar" data-action="scroll->searchbar#changeColor">
           <%= form_with url: searches_path, method: :get, class: "d-flex", data: { filter_chats_target:'form' } do %>
             <%= text_field_tag :query,
                   params[:query],
@@ -14,6 +15,7 @@
             <%# <i class="fa-solid fa-magnifying-glass fa-xl"></i> %>
           <% end %>
       </div>
+  <%# </div> %>
 
       <h2><i class="fa-regular fa-comments"></i> Chatrooms</h2>
       <div class="d-flex flex-row" style="overflow-x: scroll; margin-bottom:15px; padding-bottom:10px;" data-filter-chats-target="rooms">
