@@ -28,7 +28,7 @@
        <% user = User.find(message.user_id).nickname%>
 
         <%= image_tag(message.user.image_url)%>
-       
+
 
       </div>
       <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
