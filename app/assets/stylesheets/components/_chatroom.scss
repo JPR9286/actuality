@@ -35,13 +35,9 @@
   margin-left: 10px;
 }
 
-.chat-title-exit {
+.chat-title {
   display: flex;
-  justify-content: space-between;
-
-  .exit-chat {
-    margin-top: 20px;
-  }
+  justify-content: center;
 
 }
 
@@ -69,23 +65,24 @@
   }
 }
 
-.title-chatroom {
-  text-align: center;
-  font-family: Krona one;
-}
 
 
 .comment-message {
-  justify-content: center;
+  font-size: 14px;
+  color:$white;
   display: flex;
   border-radius: 20px 0 0 0;
   text-align: center;
-  width: 250px;
+  width: 100%;
   padding-top: 0;
   padding-left: 0px;
   background-color: rgba(72, 103, 103, 0.804);
 
   p {
+    color:$white;
+    text-align: start;
+    padding: 6px;
+    font-size: 14px;
     word-wrap: break-word;
   }
 }
@@ -97,6 +94,6 @@
   padding-left: 13px;
 }
 
-.author-message-p {
-  margin-top: 12px;
+.author-message {
+  margin-top: 10px;
 }
