@@ -1,5 +1,3 @@
-
-  <h1>Recherche</h1>
 <div class="container" data-controller="filter-chats">
 
       <div class="row justify-content-center my-3 search-bar" data-controller="searchbar" data-searchbar-target="searchbar">
@@ -106,7 +104,7 @@
                       <% end %>
 
                       <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
-                        <%= f.input :content, as: :text, label: false, placeholder: "Ajoute un commentaire" , wrapper_html:{id: "message-modal"} %>
+                        <%= f.input :content, as: :text, label: false, placeholder: "Ajoute un commentaire.." , wrapper_html:{id: "message-modal"} %>
                         <%= f.input :article_id, input_html: {value: article.id}, wrapper_html:{class: "d-none"} %>
                         <%= f.submit "Partager l'article", style:"width: 100%; height: 50px; border-radius: 8px;" %>
                     <% end %>
