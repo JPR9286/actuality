@@ -9,7 +9,7 @@
         </div>
 
         <div class ="text-card p-2">
-          <div class="title-card mb-4">
+          <div class="title-card">
             <div><%= article.title%></div>
           </div>
         <div class="description-text d-none">
@@ -26,9 +26,7 @@
             <%# <i class="fa-solid fa-share"></i> %>
           <%= image_tag("btn_share.svg") %>
         </button>
-      <% unless article.equal?(@articles.last) %>
-        <hr style="border-top: 1px solid white;">
-      <% end %>
+ 
     </div>
   <% end %>
     <% @articles.each do |article| %>
