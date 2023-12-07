@@ -4,7 +4,13 @@
 
 <%= simple_form_for @chatroom, data: { controller: "chatrooms-select-image" } do |f| %>
   <%= f.input :title %>
-  <%= f.association :category %>
-  <%= f.input :photo, as: :file %>
+  <%= f.association :category, collection: Category.all, input_html: {
+    data: {
+      chatrooms_select_image_target: "category",
+      controller: "tom-select",
+      tom_select_options_value: {
+        tags: true
+      }}} %>
+  <%= f.input :photo, as: :file, input_html: { data: { chatrooms_select_image_target: "imageSelectContainer" }} %>
   <%= f.submit %>
 <% end %>

@@ -4,26 +4,28 @@
     <h3 class="" >Mes groupes  - <%= @my_chatrooms.count %></h3>
       <div class="d-flex flex-row">
         <% @my_chatrooms.each do |chatroom| %>
-          <div class="wrapper-category-chat-">
+          <div class="wrapper-category-chat">
             <div class="card-chatroom my-2">
-                <%= link_to chatroom_path(chatroom), class:"link-category-chat" do %>
-                  <% if chatroom.photo.attached? %>
-                    <%= cl_image_tag chatroom.photo.key, class:"image-chat", alt: "Chatroom Image" %>
-                  <% end %>
+              <%= link_to chatroom_path(chatroom), class:"link-category-chat" do %>
+                <% if chatroom.photo.attached? %>
+                  <%= cl_image_tag chatroom.photo.key, class:"image-chat", alt: "Chatroom Image" %>
                 <% end %>
-                <div class="button-delete-group">
-                    <%= link_to chatroom_path(chatroom), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                      <i class="fa-solid fa-trash-can fa-lg" style="color: #F40C0C;"></i>
-                    <% end %>
-                  </div>
-                </div>            </div>
+
+                </div>
+              <% end %>
               <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none; font-size:12px" %>
+              <div class="button-delete-group">
+                <%= link_to chatroom_path(chatroom), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
+                <% end %>
+              </div>
+            </div>
 
         <% end %>
-        <div class="wrapper-category-chat-">
+        <div class="wrapper-category-chat">
           <div class="button-create-chat">
             <%= link_to new_chatroom_path  do %>
-              <i class="fa-solid fa-circle-plus fa-2xl" style="color: #F40C0C;"></i>
+              <%= image_tag("btn_new.png", alt: "add", class: "img_btn") %>
             <% end %>
           </div>
         </div>
@@ -49,24 +51,32 @@
       </div>
   </div>
   <%# affichage des articles que j'ai partagés  %>
+
   <div class="shared-article">
     <h3> Mes articles partagés - <%= @shared_articles.count %></h3>
-    <div class="row scrolling-wrapper flex-row flex-nowrap" >
-      <% @shared_articles.each do |article| %>
-        <div class="col-4 col-lg-3">
-          <div class="card-article">
-            <%= link_to article_path(article), class: "text-decoration-none" do %>
-              <div class="image-card">
-                <%=image_tag article.image_url, crop: :fill;%>
-              </div>
-              <div class="title-card">
-                <%= truncate(article.title, length: 40 ) %>
-              </div>
-            <% end %>
+    <% @shared_articles.each do |article| %>
+      <div class="card-article">
+        <%= link_to article_path(article) do %>
+          <div class="image-card">
+            <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
+            <div class="col category"><%= article.category&.name %></div>
           </div>
-        </div>
-      <% end %>
-    </div>
+
+          <div class ="text-card p-2">
+            <div class="title-card">
+              <div><%= article.title%></div>
+            </div>
+
+              <div class="lire">
+                <% article.message_ids.each do |message| %>
+                  <%= link_to Chatroom.find(Message.find(message).chatroom_id).title, chatroom_path(Message.find(message).chatroom_id) %></div>
+                <% end %>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
   </div>
+
 
 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item bottom-0" %>
