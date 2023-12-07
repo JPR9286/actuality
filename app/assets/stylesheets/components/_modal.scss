@@ -13,7 +13,7 @@
 
 .modal-card-article {
   // background: linear-gradient(75deg, #101132, #290d99);
-  background: linear-gradient(97deg, #101132, RGB(22, 37, 95))
+  background: linear-gradient(97deg, #101132, RGB(22, 37, 95));
 }
 
 .modal-title-card {
@@ -23,6 +23,7 @@
 
 }
 
+
 .modal-description-card {
   font-size: 15px;
   margin-left: 5px;
@@ -31,6 +32,7 @@
 .form-select {
   background-color: transparent;
   color: whitesmoke;
+  border-radius: 8px;
 }
 
 // .form-control {
