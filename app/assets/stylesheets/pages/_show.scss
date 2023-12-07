@@ -1,0 +1,44 @@
+
+.wrapper-date-summary {
+  font-size: 14px;
+  margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+  }
+  .source {
+font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  & a{
+   text-decoration: none;
+   color:white
+    }
+  }
+  .image-show {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .summary {
+    font-size: 17px;
+    font-weight: 200;
+    text-align: justify;
+  }
+  .button-share-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // width: 30px;
+    // height: 30px;
+    // position: absolute;
+    // top: 10px;
+    // right: 55px;
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    border-radius: 70px;
+    border: 2px solid #4816D6;
+    background: #F1F3F3;
+    box-shadow: 0px 2px 9px 0px #4816D6 inset;
+  }
