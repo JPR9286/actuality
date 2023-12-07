@@ -1,14 +1,12 @@
-<div id="message<%= message.id %>" class="d-flex flex-column" data-chatroom-subscription-message-id-value="<%= message.id %>"
+<div id="message<%= message.id %>"id="messages-sender" class="d-flex flex-column" data-chatroom-subscription-message-id-value="<%= message.id %>"
   data-action="click->chatroom-subscription#comment"
   data-chatroom-subscription-target="comment">
 
     <% if message.response.present? || message.article_id %>
       <div class="comment-message mb-2">
           <div class="author-message">
-            <div class="author-message-p">
               <%= message.response_author %>
               <p><%= message.response %></p>
-            </div>
           </div>
 
           <% if message.article_id %>
@@ -24,24 +22,23 @@
           <% end %>
       </div>
     <% end %>
-    <small style="margin-top: 10px;">
+    <small p-3>
     <% time = ((Time.now - message.created_at) / 60).round %>
-        <strong class="author-message"><%= message.user.nickname %>: </strong>
-         <%if time < 1 %>
-          <%= "(Il y a moins d'une minute)" %>
-         <% elsif time == 1 %>
-          <%= "(Il y a #{time} minute)"%>
-         <% elsif time < 60 %>
-          <%= "(Il y a #{time} minutes)" %>
-         <% elsif time < 1440 %>
-          <%= "(Il y a #{time / 60} heures)" %>
-        <% elsif time > 1440 %>
-          <%= "(Il y a #{time /60} heures)"%>
-        <%end%>
+        <div class="author-message"><%= message.user.nickname %>:
+          <%if time < 1 %>
+            <%= "(Il y a moins d'une minute)" %>
+          <% elsif time == 1 %>
+            <%= "(Il y a #{time} minute)"%>
+          <% elsif time < 60 %>
+            <%= "(Il y a #{time} minutes)" %>
+          <% elsif time < 1440 %>
+            <%= "(Il y a #{time / 60} heures)" %>
+          <% elsif time > 1440 %>
+            <%= "(Il y a #{time /60} heures)"%>
+          <%end%>
+        </div>
+      <p class="mb-0 message-p-chat" data-chatroom-subscription-target="messageContent"><%= message.content %></p>
     </small>
-    <div class="message-p-chat">
-      <p class="mb-0" data-chatroom-subscription-target="messageContent"><%= message.content %></p>
-    </div>
 
 
   <button class="btn comment-this-message" data-comment-message-target="button" data-action="click->chatroom-subscription#fillForm"><i class="fa-sharp fa-solid fa-reply fa-lg" style="color: #b4ccdf;;"></i></button>
