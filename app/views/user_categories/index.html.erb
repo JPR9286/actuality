@@ -35,15 +35,15 @@
     <h3 class="" >Mes participations - <%= @user_chatrooms.count %></h3>
       <div class="d-flex flex-row">
         <% @user_chatrooms.each do |chatroom| %>
-          <div class="wrapper-category-chat-">
-            <div class="card-chatroom my-2">
+          <div class="wrapper-category-chat">
+            <div class="card-chatroom my-2 row">
                 <%= link_to chatroom_path(chatroom), class:"link-category-chat" do %>
                   <% if chatroom.photo.attached? %>
                     <%= cl_image_tag chatroom.photo.key, class:"image-chat", alt: "Chatroom Image" %>
                   <% end %>
                 <% end %>
             </div>
-              <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none; font-size:12px" %>
+              <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none; font-size:11px" %>
           </div>
         <% end %>
       </div>
