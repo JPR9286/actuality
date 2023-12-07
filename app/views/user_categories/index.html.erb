@@ -69,7 +69,7 @@
 
               <div class="lire">
                 <% article.message_ids.each do |message| %>
-                  <%= Chatroom.find(Message.find(message).chatroom_id).title %></div>
+                  <%= link_to Chatroom.find(Message.find(message).chatroom_id).title, chatroom_path(Message.find(message).chatroom_id) %></div>
                 <% end %>
           </div>
         <% end %>
