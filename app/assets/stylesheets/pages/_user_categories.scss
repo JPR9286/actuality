@@ -27,6 +27,13 @@
   .scrolling-wrapper{
     overflow-x: auto;
   }
+  &.wrapper-category-chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 
 .chatroom_users {
@@ -61,13 +68,19 @@
     width: 100%;
     background: black;
   }
-  &.button-delete-group {
+  .button-delete-group {
     position: relative;
-    top: 10px;
-    left: 10px;
-    width: 100%;
-    background: black;
+    top: -99px;
+    width: auto;
+    left: 25px;
   }
+  .button-create-chat {
+    position: relative;
+    top: 0;
+    width: auto;
+
+  }
+
 }
 
 .shared-article {
