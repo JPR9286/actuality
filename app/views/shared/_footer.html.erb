@@ -6,9 +6,11 @@
     <% end %>
   </div>
   <div class="menu-link" id="profile">
-     <%= link_to user_categories_path do %>
-      <%= image_tag("avatar_user.png", alt: "profile", class: "img_btn") %>
-      <p>Hello <strong><%=  current_user.nickname %></strong></p>
+    <% if current_user  %>
+      <%= link_to user_categories_path do %>
+        <%= image_tag(current_user.image_url, alt: "profile", class: "img_btn") %>
+        <p>Hello <strong><%=  current_user.nickname %></strong></p>
+      <% end %>
     <% end %>
   </div>
   <div class="menu-link">
