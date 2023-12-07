@@ -1,16 +1,9 @@
-<div id="message<%= message.id %>" class="d-flex flex-column" data-chatroom-subscription-message-id-value="<%= message.id %>"
+<div id="message<%= message.id %>"id="messages-sender" class="d-flex flex-column" data-chatroom-subscription-message-id-value="<%= message.id %>"
   data-action="click->chatroom-subscription#comment"
   data-chatroom-subscription-target="comment">
 
     <% if message.response.present? || message.article_id %>
       <div class="comment-message mb-2">
-          <div class="author-message">
-            <div class="author-message-p">
-              <%= message.response_author %>
-              <p><%= message.response %></p>
-            </div>
-          </div>
-
           <% if message.article_id %>
             <% article = Article.find(message.article_id)  %>
             <%= link_to article_path(message.article_id), class: "text-decoration-none" do %>
@@ -22,11 +15,17 @@
             </div>
             <% end %>
           <% end %>
+          <div class="author-message">
+              <%= message.response_author %>
+              <p><%= message.response %></p>
+          </div>
+
       </div>
     <% end %>
-    <small style="margin-top: 10px;">
-    <% time = ((Time.now - message.created_at) / 60).round %>
-        <strong class="author-message"><%= message.user.nickname %>: </strong>
+
+    <small style="margin-top: 5px;">
+     <% time = ((Time.now - message.created_at) / 60).round %>
+        <strong class="author-message"><%= message.user.nickname %> : </strong>
          <%if time < 1 %>
           <%= "(Il y a moins d'une minute)" %>
          <% elsif time == 1 %>

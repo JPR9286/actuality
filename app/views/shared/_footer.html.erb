@@ -1,21 +1,22 @@
-<div class="footer">
-  <div class="footer_img">
-    <%= image_tag("footer_img.png", alt: "footer image") %>
+<div class="footer <%= controller_name %> ">
+  <div class="menu-link">
+    <%= link_to root_path do %>
+      <%= image_tag("btn_home.png", alt: "home", class: "img_btn") %>
+      <p>L'actualité</p>
+    <% end %>
   </div>
-
-  <div class="menu">
-    <div class="row d-flex">
-    <%= link_to chatrooms_path, class: "col1" do %>
-      <%= image_tag("btn_click.png", alt: "chat", class: "img_btn") %>
+  <div class="menu-link" id="profile">
+    <% if current_user  %>
+      <%= link_to user_categories_path do %>
+        <%= image_tag(current_user.image_url, alt: "profile", class: "img_btn") %>
+        <p>Hello <strong><%=  current_user.nickname %></strong></p>
+      <% end %>
     <% end %>
-    <%= link_to user_categories_path, class: "col2" do %>
-      <%= image_tag("btn_click.png", alt: "search", class: "img_btn") %>
-    <% end %>
-    <%= link_to searches_path, class: "col3" do %>
-      <%= image_tag("btn_click.png", alt: "menu", class: "img_btn") %>
-    <% end %>
-
-    </div>
   </div>
-
+  <div class="menu-link">
+    <%= link_to searches_path do %>
+      <%= image_tag("btn_search.png", alt: "search", class: "img_btn") %>
+      <p>Rechercher</p>
+    <% end %>
+  </div>
 </div>

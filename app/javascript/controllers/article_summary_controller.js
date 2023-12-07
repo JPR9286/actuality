@@ -8,10 +8,9 @@ export default class extends Controller {
     longSummary: String,
     path: String
   }
-  static targets = ['spinner', 'summaryContainer', 'longSummaryContainer', 'longSummaryBtn', 'summaryBtn']
+  static targets = ['spinner', 'summaryContainer', 'longSummaryContainer', 'longSummaryBtn', 'summaryBtn','toggleSummary']
 
   connect() {
-    console.log('hi');
     this.summarizeLong();
   }
 
@@ -44,17 +43,16 @@ export default class extends Controller {
   // }
 
   summarizeShort(event) {
-    console.log('hello');
     this.spinnerTarget.classList.remove('d-none');
     this.longSummaryContainerTarget.classList.add('d-none');
-    this.summaryBtnTarget.classList.add('d-none');
+    // this.summaryBtnTarget.classList.add('d-none');
 
     if (this.summaryValue.length > 0) {
       this.spinnerTarget.classList.add('d-none');
       this.summaryContainerTarget.classList.remove('d-none');
       const typed = new Typed(this.summaryContainerTarget, {
         strings: [this.summaryValue],
-        typeSpeed: -10,
+        typeSpeed: 0,
         showCursor: false
       });
     } else {
@@ -76,29 +74,29 @@ export default class extends Controller {
         this.summaryContainerTarget.classList.remove('d-none');
         const typed = new Typed(this.summaryContainerTarget, {
           strings: [data["summary"]],
-          typeSpeed: -10,
+          typeSpeed: 0,
           showCursor: false
         });
       })
     }
-    this.longSummaryBtnTarget.classList.remove('d-none');
+    // this.longSummaryBtnTarget.classList.remove('d-none');
   }
 
   summarizeLong(event) {
-    console.log('hello');
     this.spinnerTarget.classList.remove('d-none');
     this.summaryContainerTarget.classList.add('d-none');
-    this.longSummaryBtnTarget.classList.add('d-none');
+    // this.longSummaryBtnTarget.classList.add('d-none');
 
     if (this.longSummaryValue.length > 0) {
       this.spinnerTarget.classList.add('d-none');
 
       this.longSummaryContainerTarget.classList.remove('d-none');
-      const typed = new Typed(this.longSummaryContainerTarget, {
-        strings: [this.longSummaryValue],
-        typeSpeed: -10,
-        showCursor: false
-      });
+      // const typed = new Typed(this.longSummaryContainerTarget, {
+      //   strings: [this.longSummaryValue],
+      //   typeSpeed: -10,
+      //   showCursor: false
+      // });
+      this.longSummaryContainerTarget.innerText = this.longSummaryValue;
     } else {
       fetch(this.pathValue, {
         headers: {
@@ -118,12 +116,18 @@ export default class extends Controller {
         this.longSummaryContainerTarget.classList.remove('d-none');
         const typed = new Typed(this.longSummaryContainerTarget, {
           strings: [data["long_summary"]],
-          typeSpeed: -10,
+          typeSpeed: 0,
           showCursor: false
         });
       })
     }
-    this.summaryBtnTarget.classList.remove('d-none');
+    // this.summaryBtnTarget.classList.remove('d-none');
   }
-
+  toggleSummary(event) {
+    if (event.target.checked) {
+      this.summarizeShort();
+    } else {
+      this.summarizeLong();
+    }
+  }
 }

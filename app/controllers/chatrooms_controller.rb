@@ -27,7 +27,7 @@ class ChatroomsController < ApplicationController
   def destroy
     @chatroom = Chatroom.find(params[:id])
     @chatroom.destroy
-    redirect_to chatrooms_path, status: :see_other
+    redirect_to user_categories_path, status: :see_other
   end
 
   def affiche_image
