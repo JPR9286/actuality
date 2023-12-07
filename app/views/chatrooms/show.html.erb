@@ -4,7 +4,7 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-<div class="chat-title-exit">
+<div class="chat-title">
 
   <div class="img-groupe-title">
 
@@ -17,25 +17,17 @@
     </div>
   </div>
 
-
-  <div class="exit-chat mt-4">
-    <%= link_to chatrooms_path do %>
-    <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #b4ccdf;;"></i>
-    <% end %>
-  </div>
 </div>
 
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.sort_by {|obj| obj.created_at }.each do |message| %>
-    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-       <div class="avatar_sender">
+    <div class="align-items-end d-flex gap-2 justify-content-start message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+      <div class="avatar_sender">
 
        <% user = User.find(message.user_id).nickname%>
-       <% if user == "Alex" %>
-        <%= image_tag("avatars/avatar_alex.png")%>
-       <% elsif user == "Adel" %>
+
+       <% if user == "Adel" %>
         <%= image_tag("avatars/avatar_adel2.jpeg")%>
        <% elsif user == "Jeremy" %>
         <%= image_tag("avatars/avatar_jeremy.png")%>
@@ -44,6 +36,8 @@
        <% end %>
 
       </div>
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+
         <%= render "messages/message", message: message %>
       </div>
     </div>
