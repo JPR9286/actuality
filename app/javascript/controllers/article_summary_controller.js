@@ -54,7 +54,7 @@ export default class extends Controller {
       this.summaryContainerTarget.classList.remove('d-none');
       const typed = new Typed(this.summaryContainerTarget, {
         strings: [this.summaryValue],
-        typeSpeed: -10,
+        typeSpeed: 0,
         showCursor: false
       });
     } else {
