@@ -25,35 +25,35 @@
 
     <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
 
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column mt-2">
       <% @articles.each do |article| %>
         <%# <span class="border border-dark"></span> %>
 
         <div class="card-article">
-
           <%= link_to article_path(article) do  %>
-
             <div class="image-card">
               <% if article.image_url %>
               <%= image_tag article.image_url, crop: :fill, style:"width: 100%";%>
               <%# else image par defaut %>
               <% end %>
             </div>
-
-            <div class="p-3" >
-              <div class="title-card mt-2">
-                <%# <li>= article.title</li> %>
-                <p><%= article.title %></p>
+            <div class="col category"><%= article.category&.name %></div>
+            <div class="text-card p-2">
+              <div class="title-card">
+                <div><%= article.title %></div>
               </div>
+              <div class="row justify-space-between-">
+                <div class="col-6 date"><%= article.date_article %></div>
+                <div class="col-6 source"><%= article.source %></div>
+              </div>
+              <div class="lire"><%= link_to "lire l'original", article.article_url %></div>
             </div>
-
-          <% end %>
-
-          <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
-            <%# <i class="fa-solid fa-share"></i> %>
-            <%# <i class="fa-regular fa-share"></i> %>
-            <%= image_tag("btn_share.svg") %>
-          </button>
+           <% end %>
+            <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
+              <%# <i class="fa-solid fa-share"></i> %>
+              <%# <i class="fa-regular fa-share"></i> %>
+              <%= image_tag("btn_share.svg") %>
+            </button>
 
         </div>
 

@@ -20,13 +20,13 @@
   <body id="<%= controller_name %>_<%= action_name %>">
     <div id="background">
     </div>
-    <div class="container">
+    <div class="container <%= "container-with-margin-bottom" unless controller_name == "chatrooms" && action_name == "show" %>">
       <%#= render "shared/flashes" %>
       <div class="wrapper">
         <%= yield %>
       </div>
     </div>
-      <%= render "shared/footer" %>
+    <%= render "shared/footer" %>
 
 
   </body>
