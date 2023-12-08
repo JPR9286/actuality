@@ -52,7 +52,7 @@ chatroom.messages.create!(user: user1, content: "Allez, on croise les doigts pou
 chatroom.messages.create!(user: user2, content: "Paris est magique ! On y croit à fond pour cette saison !")
 
 # Messages pour une discussion entre supporters du PSG et de l'OM
-chatroom = Chatroom.create!(title: "PSG - OM ", user:user2, category: category)
+chatroom = Chatroom.create!(title: "PSG - OM ", user:user1, category: category)
 
 chatroom.messages.create!(user: user1, content: "Salut les gars, vous avez vu le match PSG-OM ? Quelle intensité !")
 chatroom.messages.create!(user: user2, content: "Ouais, c'était serré. Dommage que l'OM n'ait pas pu concrétiser ses occasions.")
@@ -67,7 +67,7 @@ chatroom.messages.create!(user: user2, content: "C'est sûr, l'OM n'a pas dit so
 
 # Création de la chatroom
 # category = Category.find_by(name_en: "Olympic Sports")
-chatroom = Chatroom.create!(title: "JO 2024", user:user3, category: category)
+chatroom = Chatroom.create!(title: "JO 2024", user:user1, category: category)
 # file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
 # article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 # article.save
@@ -86,7 +86,7 @@ chatroom.messages.create!(user: user2, content: "En tout cas, c'est une occasion
 
 category = Category.find_by(name_en: "Programming Languages")
 
-chatroom = Chatroom.create!(title: "Le Wagon", user:user2, category: category)
+chatroom = Chatroom.create!(title: "Le Wagon", user:user1, category: category)
 # Messages sur la formation Le Wagon pour apprendre à développer en 9 semaines
 chatroom.messages.create!(user: user1, content: "Avez-vous des retours sur la formation de 9 semaines de Le Wagon pour apprendre le développement web ?")
 chatroom.messages.create!(user: user2, content: "J'ai un ami qui l'a fait et il en était très satisfait. Il a trouvé un job en tant que développeur juste après.")
