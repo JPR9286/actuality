@@ -45,13 +45,6 @@
                 <%# <li>= article.title</li> %>
                 <p><%= article.title %></p>
               </div>
-
-              <div class="description-card">
-                <% if article.description %>
-                <%# a enlever apres si articles a une description %>
-                  <p><%= article.description.truncate(100) %></p>
-                <% end %>
-              </div>
             </div>
 
           <% end %>
