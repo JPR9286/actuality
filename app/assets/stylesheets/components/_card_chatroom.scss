@@ -40,3 +40,65 @@
   height: 40px;
   // object-fit: contain;
 }
+
+
+.card-group-vf {
+  position: relative;
+  width: 50px;
+  margin: 0 0.3rem;
+  flex-shrink: 0;
+  .card-group-vf__delete-btn {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: #0e162d;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid white;
+    i {
+      font-size: 12px;
+    }
+  }
+  .card-group-vf__show-btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+  .card-group-vf__img {
+    background: rgb(62, 19, 156);
+    padding: 5px;
+    border-radius: 8px;
+    min-height: 50px;
+    img {
+      width: 100%;
+      height: 40px;
+      objet-fit: cover;
+    }
+    &.new-chatroom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 75%;
+        height: auto;
+
+      }
+    }
+  }
+  .card-group-vf__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}

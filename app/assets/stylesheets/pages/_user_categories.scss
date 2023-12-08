@@ -27,12 +27,6 @@
   .scrolling-wrapper{
     overflow-x: auto;
   }
-  &.wrapper-category-chat {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 
 }
 
@@ -63,23 +57,18 @@
   .scrolling-wrapper{
     overflow-x: auto;
   }
-  &.button-create-chat {
-
-    width: 100%;
-    background: black;
-  }
   .button-delete-group {
     position: relative;
     top: -99px;
     width: auto;
     left: 25px;
   }
-  .button-create-chat {
-    position: relative;
-    top: 0;
-    width: auto;
+  // .button-create-chat {
+  //   position: relative;
+  //   top: 0;
+  //   width: auto;
 
-  }
+  // }
 
 }
 
