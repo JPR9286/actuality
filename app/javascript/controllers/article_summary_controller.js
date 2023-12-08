@@ -71,6 +71,7 @@ export default class extends Controller {
         this.spinnerTarget.classList.add('d-none');
         if (data["summary"] == null) return;
 
+        this.summaryValue = data["summary"];
         this.summaryContainerTarget.classList.remove('d-none');
         const typed = new Typed(this.summaryContainerTarget, {
           strings: [data["summary"]],
@@ -113,12 +114,14 @@ export default class extends Controller {
         this.spinnerTarget.classList.add('d-none');
         if (data["long_summary"] == null) return;
 
+        this.longSummaryValue = data["long_summary"];
         this.longSummaryContainerTarget.classList.remove('d-none');
-        const typed = new Typed(this.longSummaryContainerTarget, {
-          strings: [data["long_summary"]],
-          typeSpeed: 0,
-          showCursor: false
-        });
+        this.longSummaryContainerTarget.innerText = data["long_summary"];
+        // const typed = new Typed(this.longSummaryContainerTarget, {
+        //   strings: [data["long_summary"]],
+        //   typeSpeed: 0,
+        //   showCursor: false
+        // });
       })
     }
     // this.summaryBtnTarget.classList.remove('d-none');
