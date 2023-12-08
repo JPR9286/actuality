@@ -17,7 +17,7 @@
       </div>
 
       <h2><i class="fa-regular fa-comments"></i> Groupes </h2>
-      <div class="d-flex flex-row" style="overflow-x: scroll; margin-bottom:15px; padding-bottom:10px;" data-filter-chats-target="rooms">
+      <div class="d-flex flex-row no-scrollbar" style="overflow-x: scroll; margin-bottom:15px; padding-bottom:10px;" data-filter-chats-target="rooms">
         <%= render "chatrooms_list", chatrooms: @chatrooms %>
       </div>
 
@@ -25,7 +25,7 @@
 
     <h2> <i class="fa-regular fa-newspaper"></i> Articles</h2>
 
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column mt-2">
       <% @articles.each do |article| %>
         <%# <span class="border border-dark"></span> %>
 
@@ -49,10 +49,10 @@
               <div class="lire"><%= link_to "lire l'original", article.article_url %></div>
             </div>
            <% end %>
-            <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
+            <button type="button" class="align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
               <%# <i class="fa-solid fa-share"></i> %>
               <%# <i class="fa-regular fa-share"></i> %>
-              <%= image_tag("btn_share.svg") %>
+              <%= image_tag("btn_share2.svg") %>
             </button>
 
         </div>
