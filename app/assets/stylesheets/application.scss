@@ -61,8 +61,8 @@ body {
 }
 
 .form-inputs {
-  background-color: $black;
-  color: $white;
+  // background-color: $black;
+  // color: $white;
 }
 
 .form-control {
@@ -85,4 +85,19 @@ input[name="chatroom[title]"] {
 
 .container-with-margin-bottom {
   margin-bottom: 130px;
+}
+
+#sessions_new {
+  .btn-group {
+    width: fit-content;
+  }
+}
+
+.devise-links a {
+  text-decoration: none;
+  color: white
+}
+
+.devise-container {
+  height: 90vh;
 }
