@@ -56,10 +56,6 @@
     <%# end %>
   <%# </div> %>
 
-  <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=@article.id%>">
-      <%# <i class="fa-solid fa-share"></i> %>
-      <%= image_tag("btn_share.svg") %>
-  </button>
 
     <div class="modal fade" id="shareModal-<%=@article.id%>" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-bottom">
