@@ -57,6 +57,7 @@ body {
   padding-top: 20px;
   min-height: 90vh;
   overflow: auto;
+
 }
 
 .form-inputs {
@@ -69,10 +70,12 @@ body {
   color: $white;
 }
 
-
-.form-select {
-  padding: 0;
+.ts-wrapper {
+ padding: 0px;
 }
+/* .form-select {
+  padding: 0;
+} */
 
 input[name="chatroom[title]"] {
   background: white;
