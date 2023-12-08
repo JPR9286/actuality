@@ -1,4 +1,4 @@
-<div id="message<%= message.id %>"id="messages-sender" class="d-flex flex-column" data-chatroom-subscription-message-id-value="<%= message.id %>"
+<div id="message<%= message.id %>"id="messages-sender" class="d-flex flex-column p-2" data-chatroom-subscription-message-id-value="<%= message.id %>"
   data-action="click->chatroom-subscription#comment"
   data-chatroom-subscription-target="comment">
 
@@ -38,7 +38,7 @@
           <%= "(Il y a #{time /60} heures)"%>
         <%end%>
     </small>
-    <div class="message-p-chat">
+    <div class="message-p-chat pt-2">
       <p class="mb-0" data-chatroom-subscription-target="messageContent"><%= message.content %></p>
     </div>
 
