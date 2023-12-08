@@ -1,81 +1,71 @@
 
   <%# affichage des discussions que j'ai créé  %>
   <div class="chatroom_users">
-    <h3 class="" >Mes groupes  - <%= @my_chatrooms.count %></h3>
-      <div class="d-flex flex-row">
-        <% @my_chatrooms.each do |chatroom| %>
-          <div class="wrapper-category-chat">
-            <div class="card-chatroom my-2">
-              <%= link_to chatroom_path(chatroom), class:"link-category-chat" do %>
-                <% if chatroom.photo.attached? %>
-                  <%= cl_image_tag chatroom.photo.key, class:"image-chat", alt: "Chatroom Image" %>
-                <% end %>
-
-                </div>
-              <% end %>
-              <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none; font-size:12px" %>
-              <div class="button-delete-group">
-                <%= link_to chatroom_path(chatroom), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                  <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
-                <% end %>
-              </div>
-            </div>
-
-        <% end %>
-        <div class="wrapper-category-chat">
-          <div class="button-create-chat">
-            <%= link_to new_chatroom_path  do %>
-              <%= image_tag("btn_new.png", alt: "add", class: "img_btn") %>
-            <% end %>
-          </div>
+    <h3 class="mb-3 fw-bold">Mes communautés</h3>
+    <div class="d-flex flex-row no-scrollbar mb-4">
+      <div class="card-group-vf">
+        <%= link_to "", new_chatroom_path, class: "card-group-vf__show-btn" %>
+        <div class="card-group-vf__img new-chatroom">
+          <%= image_tag("btn_new.png", alt: "add", class: "img_btn") %>
+        </div>
+        <div class="card-group-vf__label">
+          <span>Ajouter</span>
         </div>
       </div>
+      <% @my_chatrooms.each do |chatroom| %>
+          <div class="card-group-vf mr-3">
+            <%= link_to "", chatroom_path(chatroom), class: "card-group-vf__show-btn" %>
+            <%= link_to chatroom_path(chatroom), class: "card-group-vf__delete-btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
+            <% end %>
+            <div class="card-group-vf__img">
+              <%= cl_image_tag(chatroom.photo.key, class:"image-chat", alt: "Chatroom Image") if chatroom.photo.attached?%>
+            </div>
+            <div class="card-group-vf__label">
+              <span><%= chatroom.title %></span>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </div>
 
 <%# affichage des discussions où je participe  %>
   <div class="chatroom_users">
-    <h3 class="" >Mes participations - <%= @user_chatrooms.count %></h3>
-      <div class="d-flex flex-row">
+    <h3 class="mb-3 fw-bold">Mes participations</h3>
+      <div class="d-flex flex-row no-scrollbar mb-4">
         <% @user_chatrooms.each do |chatroom| %>
-          <div class="wrapper-category-chat">
-            <div class="card-chatroom my-2 row">
-                <%= link_to chatroom_path(chatroom), class:"link-category-chat" do %>
-                  <% if chatroom.photo.attached? %>
-                    <%= cl_image_tag chatroom.photo.key, class:"image-chat", alt: "Chatroom Image" %>
-                  <% end %>
-                <% end %>
-            </div>
-              <%= link_to chatroom.title, chatroom_path(chatroom), style: "color: white; text-decoration: none; font-size:11px" %>
-          </div>
+          <%= render "chatrooms/card", chatroom: chatroom %>
         <% end %>
       </div>
   </div>
   <%# affichage des articles que j'ai partagés  %>
 
   <%# <div class="shared-article"> %>
-    <h3> Mes articles partagés - <%= @shared_articles.count %></h3>
-    <% @shared_articles.each do |article| %>
-      <div class="card-article">
-        <%= link_to article_path(article) do %>
-          <div class="image-card">
-            <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
-            <div class="col category"><%= article.category&.name %></div>
-          </div>
-
-          <div class ="text-card p-2">
-            <div class="title-card">
-              <div><%= article.title%></div>
+    <h3 class="mb-3 fw-bold">Mes articles partagés</h3>
+    <div class="mb-4">
+      <% @shared_articles.each do |article| %>
+        <div class="card-article">
+          <%= link_to article_path(article) do %>
+            <div class="image-card">
+              <p><%= image_tag article.image_url, style: 'width: 100%;' %></p>
+              <div class="col category"><%= article.category&.name %></div>
             </div>
 
-              <div class="lire">
-                <% article.message_ids.each do |message| %>
-                  <%= link_to Chatroom.find(Message.find(message).chatroom_id).title, chatroom_path(Message.find(message).chatroom_id) %></div>
-                <% end %>
-          </div>
-        <% end %>
+            <div class ="text-card p-2">
+              <div class="title-card">
+                <div><%= article.title%></div>
+              </div>
 
-      </div>
-    <% end %>
+                <div class="lire">
+                  <% article.message_ids.each do |message| %>
+                    <%= link_to Chatroom.find(Message.find(message).chatroom_id).title, chatroom_path(Message.find(message).chatroom_id) %></div>
+                  <% end %>
+            </div>
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
   <%# </div> %>
 
 

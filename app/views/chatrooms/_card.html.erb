@@ -1,0 +1,9 @@
+<div class="card-group-vf">
+  <%= link_to "", chatroom_path(chatroom), class: "card-group-vf__show-btn" %>
+  <div class="card-group-vf__img">
+    <%= cl_image_tag(chatroom.photo.key, class:"image-chat", alt: "Chatroom Image") if chatroom.photo.attached?%>
+  </div>
+  <div class="card-group-vf__label">
+    <span><%= chatroom.title %></span>
+  </div>
+</div>
