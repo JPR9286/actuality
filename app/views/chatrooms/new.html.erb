@@ -1,16 +1,25 @@
-<p> New chatroom</p>
+<h1 class="mb-5">Ajouter un groupe de discussion</h1>
 <%# Ajout d'un bouton pour sélectionner une image parmi les images disponibles dans l'illustration des articles %>
 
 
 <%= simple_form_for @chatroom, data: { controller: "chatrooms-select-image" } do |f| %>
-  <%= f.input :title %>
-  <%= f.association :category, collection: Category.all, input_html: {
-    data: {
-      chatrooms_select_image_target: "category",
-      controller: "tom-select",
-      tom_select_options_value: {
-        tags: true
-      }}} %>
-  <%= f.input :photo, as: :file, input_html: { data: { chatrooms_select_image_target: "imageSelectContainer" }} %>
-  <%= f.submit %>
+  <%= f.input :title, label: "Titre",
+    placeholder: "ex: Harry Potter",
+    wrapper_html: { class: "mb-4" } %>
+  <%= f.association :category,
+    label: "Catégorie",
+    include_blank: "Sélectionner une catégorie",
+    collection: Category.all,
+    wrapper_html: { class: "mb-4" },
+    input_html: {
+      data: {
+        chatrooms_select_image_target: "category",
+        controller: "tom-select",
+        tom_select_options_value: {
+          tags: true
+        }}} %>
+  <%= f.input :photo, as: :file, label: "Ajouter une photo", input_html: { data: { chatrooms_select_image_target: "imageSelectContainer" }},wrapper_html: { class: "mb-4" } %>
+  <div class="text_center d-flex justify-content-center">
+    <%= f.submit "Créer le groupe", class: "btn-group" %>
+  </div>
 <% end %>
