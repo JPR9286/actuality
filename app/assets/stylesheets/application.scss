@@ -68,3 +68,17 @@ body {
   background-color: $black;
   color: $white;
 }
+
+
+.ts-wrapper {
+  padding: 0;
+}
+
+input[name="chatroom[title]"] {
+  background: white;
+  border-radius: 5px;
+}
+
+.container-with-margin-bottom {
+  margin-bottom: 130px;
+}
