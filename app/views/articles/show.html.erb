@@ -5,11 +5,8 @@
 
   <div class="image-show" style="position:relative;">
     <%= image_tag @article.image_url, style: 'width: 100%;' %>
-    <button style="position:absolute; top: 7px; right: 5px; border:none; background-color: transparent;" type="button" class="p-1 rounded-circle align-self-end" data-bs-toggle="modal" data-bs-target="#shareModal-<%=@article.id%>">
-      <%# <i class=“fa-solid fa-share”></i> %>
-      <div class="button-share-show">
-        <%= image_tag("btn_share.svg") %>
-      </div>
+    <button type="button" class="align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=@article.id%>">
+      <%= image_tag("btn_share2.svg") %>
     </button>
   </div>
 
