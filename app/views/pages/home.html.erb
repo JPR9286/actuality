@@ -12,21 +12,21 @@
           <div class="title-card">
             <div><%= article.title%></div>
           </div>
-        <div class="description-text d-none">
-            <p><%= article.description.truncate(150) %></p>
-        </div>
-          <div class="row justifspace-between-">
-            <div class="col-6 date"><%= article.date_article %></div>
-            <div class="col-6 source"><%= article.source %></div>
+          <div class="description-text d-none">
+              <p><%= article.description.truncate(150) %></p>
           </div>
-            <div class="lire"><%= link_to "lire l'original", article.article_url %></div>
+          <div class="row justifspace-between-">
+              <div class="col-6 date"><%= article.date_article %></div>
+              <div class="col-6 source"><%= article.source %></div>
+          </div>
+          <div class="lire"><%= link_to "lire l'original", article.article_url %></div>
         </div>
       <% end %>
         <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=article.id%>">
             <%# <i class="fa-solid fa-share"></i> %>
           <%= image_tag("btn_share.svg") %>
         </button>
- 
+
     </div>
   <% end %>
     <% @articles.each do |article| %>

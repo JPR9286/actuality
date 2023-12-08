@@ -1,34 +1,61 @@
-<div class="container">
-  <h1><%= @article.title %></h1>
-  <p><%= @article.description %></p>
-  <p><%= @article.date_article %></p>
+<div class="container" >
 
-  <div data-controller="article-summary"
+  <p><%=  @article.title %></p>
+ <%# <div class="image-show" style= "postion:relative;"> %>
+
+  <div class="image-show" style="position:relative;">
+    <%= image_tag @article.image_url, style: 'width: 100%;' %>
+    <button style="position:absolute; top: 7px; right: 5px; border:none; background-color: transparent;" type="button" class="p-1 rounded-circle align-self-end" data-bs-toggle="modal" data-bs-target="#shareModal-<%=@article.id%>">
+      <%# <i class=“fa-solid fa-share”></i> %>
+      <div class="button-share-show">
+        <%= image_tag("btn_share.svg") %>
+      </div>
+    </button>
+  </div>
+
+  <%# </div> %>
+
+  <div class="summary" data-controller="article-summary"
     data-article-summary-summary-value="<%= @article.summary %>"
     data-article-summary-long-summary-value="<%= @article.long_summary %>"
     data-article-summary-path-value="<%= fetch_summary_article_path(@article) %>">
-    <button data-article-summary-target="summaryBtn" data-action="click->article-summary#summarizeShort">Réusmé court</button>
-    <button class="d-none" data-article-summary-target="longSummaryBtn" data-action="click->article-summary#summarizeLong">Réusmé long</button>
-    <div class="d-none" data-article-summary-target="summaryContainer"></div>
-    <div class="d-none" data-article-summary-target="longSummaryContainer"></div>
-    <div class="text-center d-flex flex-column align-items-center" data-article-summary-target="spinner">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+
+
+    <div class="wrapper-date-summary">
+      <div><%= @article.date_article %></div>
+      <div class="source">
+        <%= link_to @article.source.truncate(20), @article.article_url %>
       </div>
-      <span>Nous résumons votre article...</span>
+
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->article-summary#toggleSummary">
+        <label class="form-check-label" for="flexSwitchCheckDefault">résumé</label>
+      </div>
+    </div>
+
+    <div>
+      <div class="d-none" data-article-summary-target="summaryContainer"></div>
+      <div class="d-none" data-article-summary-target="longSummaryContainer"></div>
+      <div class="text-center d-flex flex-column align-items-center" data-article-summary-target="spinner">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Nous résumons votre article...</span>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="text-center">
-    <%= link_to @article.article_url do %>
-      <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i>
-    <% end %>
-  </div>
 
-  <button type="button" class="p-1 rounded-circle align-self-end bubble-share" data-bs-toggle="modal" data-bs-target="#shareModal-<%=@article.id%>">
-      <%# <i class="fa-solid fa-share"></i> %>
-      <%= image_tag("btn_share.svg") %>
-    </button>
+
+
+
+  <%# <div class="text-center"> %>
+    <%#= link_to @article.article_url do %>
+      <%# <i class="fa-solid fa-circle-plus fa-xl" style="color: #f20202;"></i> %>
+    <%# end %>
+  <%# </div> %>
+
 
     <div class="modal fade" id="shareModal-<%=@article.id%>" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-bottom">
@@ -53,8 +80,7 @@
                   <p><%= @article.description.truncate(150) %></p>
                   <%# end %>
               </div>
-
-          <div data-controller="share-article">
+            <div data-controller="share-article">
               <%#= select(:chatroom, :id, current_user.chatrooms.pluck(:title, :id)) %>
               <%= simple_form_for("", url: "") do |f| %>
                 <%= f.input :chatroom,
@@ -63,13 +89,11 @@
                   include_blank: "Sélectionne ton groupe",
                   label: false %>
               <% end %>
-
               <%= simple_form_for(:message, url: "", html: {data: {share_article_target:"commentForm"}}) do |f| %>
                 <%= f.input :content, as: :text, label: false, placeholder: "Ajoute un commentaire.." , wrapper_html:{id: "message-modal"} %>
                 <%= f.input :article_id, input_html: {value: @article.id}, wrapper_html:{class: "d-none"} %>
-                <%= f.submit "Partager l'article", style:"width: 100%; height: 50px; border-radius: 8px;" %>
-            <% end %>
-
+                <%= f.submit "Partager l’article", style:"width: 100%; height: 50px; border-radius: 8px;" %>
+              <% end %>
             </div>
           </div>
         </div>

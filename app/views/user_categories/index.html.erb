@@ -52,7 +52,7 @@
   </div>
   <%# affichage des articles que j'ai partagés  %>
 
-  <div class="shared-article">
+  <%# <div class="shared-article"> %>
     <h3> Mes articles partagés - <%= @shared_articles.count %></h3>
     <% @shared_articles.each do |article| %>
       <div class="card-article">
@@ -76,7 +76,7 @@
 
       </div>
     <% end %>
-  </div>
+  <%# </div> %>
 
 
 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item bottom-0" %>
