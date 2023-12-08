@@ -53,14 +53,18 @@
 
       <%= f.input :response, as: :hidden, input_html: { data: {chatroom_subscription_target: "responseInput" } }%>
       <%= f.input :response_author, as: :hidden, input_html: { data: {chatroom_subscription_target: "resonseAuthorInput" } }%>
-
+    <div class="send-message-component d-flex align-items-stretch flex-grow-1">
       <%= f.input :content, input_html: { data: {chatroom_subscription_target: "focusInput" } },
         label: false,
         placeholder: "Message",
         wrapper_html: {class: "flex-grow-1"}
       %>
+      <%= button_tag type: 'submit', class: "send-message" do %>
+        <%= image_tag "actuality_logo.png" %>
+      <% end %>
+    </div>
   <div>
-    <%= image_submit_tag("actuality_logo.png", class: "logo-submit btn ")%>
+    <%#= image_submit_tag("actuality_logo.png", class: "logo-submit btn ")%>
   </div>
 <% end %>
 </div>
